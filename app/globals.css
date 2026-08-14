@@ -1,199 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+html,
+body {
+  height: 100%;
+}
 
-header {
-  height: 13vh;
-  background-color: rgb(85, 85, 85);
+body {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-nav {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 0 1.5rem;
-  justify-content: space-between;
+main {
+  flex: 1;
 }
 
-.middlenavlist {
-  margin: 0 auto;
-}
 
-.middlenavlist ul {
-  display: flex;
-  list-style: none;
-  gap: 2.5rem;
-  font-family: "Poppins", sans-serif;
-  align-items: center;
-  color: wheat;
-  margin: 0;
-  padding: 0;
-}
 
-.middlenavlist ul li a {
-  color: wheat;
-  text-decoration: none;
-}
 
-.moremagglass i {
-  color: red;
-  font-size: 0.8rem;
-  position: relative;
-  bottom: 4px;
-  transform: rotateX(180deg);
-}
 
-.lastnavitems {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-}
-
-.campbookbtn {
-  width: 100px;
-  height: 35px;
-  font-family: "Poppins", sans-serif;
-  font-size: 0.9rem;
-  border-radius: 7px;
-  background-color: blanchedalmond;
-  border: none;
-  cursor: pointer;
-}
-
-.profilebubble {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(160, 4, 4, 0.801);
-  border-radius: 50%;
-  overflow: hidden;
-  display: block;
-}
-
-.upcomingeventtag {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.2rem;
-  background-color: blanchedalmond;
-  padding: 0.2rem;
-  font-family: "Roboto Condensed", sans-serif;
-}
-
-/* Hamburger — hidden on desktop */
-.hamburgerbtn {
-  display: none;
-  background: none;
-  border: none;
-  color: wheat;
-  font-size: 1.6rem;
-  cursor: pointer;
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-  .middlenavlist {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background-color: rgb(85, 85, 85);
-    display: none;
-    padding: 1rem 0;
-  }
-
-  .middlenavlist.open {
-    display: block;
-  }
-
-  .middlenavlist ul {
-    flex-direction: column;
-    gap: 1.2rem;
-    align-items: center;
-  }
-
-  .lastnavitems {
-    gap: 1rem;
-    margin-right: 0;
-  }
-
-  .hamburgerbtn {
-    display: block;
-  }
-}
-
-footer {
-  margin-top: 5rem;
-  background-color: rgba(31, 31, 31, 0.849);
-  padding: 2rem;
-  color: white;
-}
-
-.firstpartoffooter {
-  display: flex;
-  gap: 7rem;
-  justify-content: center;
-  font-size: 1.2rem;
-  font-family: "Roboto Condensed", sans-serif;
-  margin-bottom: 0.4rem;
-  flex-wrap: wrap;
-}
-
-.firstpartoffooter div {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.firstpartoffooter a {
-  color: white;
-  text-decoration: none;
-}
-
-.secondpartoffooter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 4rem;
-}
-
-.iconsonsecondpartoffotter {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.iconsonsecondpartoffotter a {
-  color: white;
-  font-size: 1.4rem;
-  border: 1px solid white;
-  width: 37px;
-  height: 37px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-}
-
-.copyrightonfooter {
-  margin-top: 0.5rem;
-  font-family: "Roboto Condensed", sans-serif;
-}
-
-.footerbutton {
-  width: 150px;
-  padding: 0.4rem;
-  border: none;
-  border-radius: 7px;
-  background-color: rgba(206, 1, 1, 0.932);
-  cursor: pointer;
-}
-
-.zionchapelonfooter {
-  font-family: "Edu NSW ACT Cursive", cursive;
-  color: rgba(206, 1, 1, 0.932);
-  font-size: 1.4rem;
-}
 
 @import "tailwindcss";

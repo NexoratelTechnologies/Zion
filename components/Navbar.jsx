@@ -3,13 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header>
-      <nav>
+    <header className={styles.header}>
+      <nav className={styles.nav}>
         <Link href="/">
           <Image
             src="/ZionLogo1-removebg-preview.png"
@@ -20,41 +21,51 @@ export default function Navbar() {
           />
         </Link>
 
-        <button className="hamburgerbtn" onClick={() => setMenuOpen(!menuOpen)}>
+        <button
+          className={styles.hamburgerbtn}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           {menuOpen ? "✕" : "☰"}
         </button>
 
-        <div className={`middlenavlist ${menuOpen ? "open" : ""}`}>
+        <div
+          className={`${styles.middlenavlist} ${menuOpen ? styles.open : ""}`}
+        >
           <ul>
             <li>
               <Link href="/" onClick={() => setMenuOpen(false)}>
                 Home
               </Link>
             </li>
+
             <li>
               <Link href="/about" onClick={() => setMenuOpen(false)}>
                 About
               </Link>
             </li>
+
             <li>
               <Link href="/ministries" onClick={() => setMenuOpen(false)}>
                 Ministries
               </Link>
             </li>
+
             <li>
               <Link href="/events" onClick={() => setMenuOpen(false)}>
                 Events
               </Link>
             </li>
+
             <li>
               <Link href="/sermons" onClick={() => setMenuOpen(false)}>
                 Sermons
               </Link>
             </li>
+
             <li>
               <Link href="/gallery" onClick={() => setMenuOpen(false)}>
                 More
-                <span className="moremagglass">
+                <span className={styles.moremagglass}>
                   ... <i className="fa-solid fa-magnifying-glass"></i>
                 </span>
               </Link>
@@ -62,11 +73,12 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <div className="lastnavitems">
+        <div className={styles.lastnavitems}>
           <Link href="/prayer-camp">
-            <button className="campbookbtn">Camp</button>
+            <button className={styles.campbookbtn}>Camp</button>
           </Link>
-          <Link href="/login" className="profilebubble">
+
+          <Link href="/login" className={styles.profilebubble}>
             <Image
               src="/userprofile.png"
               alt="Profile"
@@ -77,7 +89,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div className="upcomingeventtag">
+      <div className={styles.upcomingeventtag}>
         <p>August 20th - Upcoming Convention</p>
       </div>
     </header>

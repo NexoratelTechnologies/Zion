@@ -1,0 +1,119 @@
+.footer {
+  margin-top: 5rem;
+  background-color: black;
+  padding: 2rem;
+  color: white;
+  position: relative;
+}
+
+.zacross {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 550px;
+}
+
+.firstpartoffooter {
+  display: flex;
+  gap: 7rem;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-family: "Playfair", serif;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.firstpartoffooter div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.firstpartoffooter h3 {
+  font-weight: bold;
+}
+
+.secondpartoffooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.iconsonsecondpartoffotter {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.iconsonsecondpartoffotter a {
+  font-size: 1.4rem;
+  border: 1px solid white;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
+.copyrightonfooter {
+  margin-top: 0.5rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.newsletterdiv {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsletterdiv input {
+  padding: 0.5rem;
+  background: transparent;
+  border: 1px solid brown;
+  width: 230px;
+  border-radius: 15px;
+  color: brown;
+}
+
+.newsletterdiv input::placeholder {
+  font-family: "Edu NSW ACT Cursive", cursive;
+  font-size: 0.8rem;
+}
+
+.newsletterdiv button {
+  padding: 0.3rem;
+  width: 230px;
+  border: none;
+  background-color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  color: black;
+}
+
+.footerLinks a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .firstpartoffooter {
+    gap: 3rem;
+  }
+  .zacross {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .firstpartoffooter {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

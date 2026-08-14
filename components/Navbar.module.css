@@ -1,0 +1,180 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.575);
+}
+
+.middlenavlist {
+  margin: 0 auto;
+}
+
+.middlenavlist ul {
+  display: flex;
+
+  list-style: none;
+
+  gap: 2.5rem;
+
+  font-family: var(--font-poppins), sans-serif;
+
+  align-items: center;
+
+  color: wheat;
+}
+
+.middlenavlist ul li a {
+  color: wheat;
+  text-decoration: none;
+}
+
+.moremagglass i {
+  color: red;
+
+  font-size: 0.8rem;
+
+  position: relative;
+
+  bottom: 4px;
+
+  transform: rotateX(180deg);
+}
+
+.lastnavitems {
+  margin-right: 3rem;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 2.5rem;
+}
+
+.campbookbtn {
+  width: 100px;
+
+  height: 35px;
+
+  font-family: var(--font-roboto-condensed), sans-serif;
+
+  font-size: 0.9rem;
+
+  border-radius: 7px;
+
+  background-color: rgba(160, 4, 4, 0.801);
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.profilebubble {
+  width: 50px;
+
+  height: 50px;
+
+  background-color: rgba(160, 4, 4, 0.801);
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  display: block;
+}
+
+.profilebubble img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upcomingeventtag {
+  display: flex;
+
+  justify-content: center;
+
+  background-color: rgba(255, 235, 205, 0.842);
+
+  padding: 0.2rem;
+
+  font-family: var(--font-roboto-condensed), sans-serif;
+}
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.hamburgerbtn {
+  display: none;
+
+  background: none;
+
+  border: none;
+
+  color: wheat;
+
+  font-size: 1.6rem;
+
+  cursor: pointer;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .middlenavlist {
+    position: absolute;
+
+    top: 80px;
+
+    left: 0;
+
+    right: 0;
+
+    background-color: rgb(85, 85, 85);
+
+    display: none;
+
+    padding: 1rem 0;
+  }
+
+  .open {
+    display: block;
+  }
+
+  .middlenavlist ul {
+    flex-direction: column;
+
+    gap: 1.2rem;
+
+    align-items: center;
+  }
+
+  .lastnavitems {
+    gap: 1rem;
+
+    margin-right: 0;
+  }
+
+  .hamburgerbtn {
+    display: block;
+  }
+}
