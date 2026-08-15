@@ -154,7 +154,62 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <section className={styles.newupcomsec}>
+        <div className={styles.leftsideonnewupcom}>
+          <h2>EVENTS</h2>
+          <p>
+            Events are up and coming dont forget to not mis it its gonna be
+            litEvents are up and coming dont forget to not mis it its gonna be
+            lit
+          </p>
+          <div className={styles.leftandrigharrowonnewupcom}>
+            <div className={styles.leftarrowonupc}>
+              <i className="fa-solid fa-arrow-left-long"></i>
+            </div>
+            <div className={styles.rightarrowonupc}>
+              <i className="fa-solid fa-arrow-right-long"></i>
+            </div>
+          </div>
+        </div>
+        <div className={styles.rightsideofnewupcom}>
+          <div className={styles.firstcardonupcom}>
+            <Image
+              className={styles.newupcomimages}
+              src="/neatdreassedyoth1.jpg"
+              alt=""
+              width={400}
+              height={600}
+            />
+            <div className={styles.darkoverlayonupcom}></div>
+            <div className={styles.eventtagonupcom}>Event</div>
+            <div className={styles.shorteventtextonupcom}>
+              <p>
+                The yearly youth camp is here again but with a tastty twist
+                twist me and twist that we are gettign twitted oo...
+              </p>
+              <p>Learn More</p>
+            </div>
+          </div>
+          <div className={styles.secondcardonupcom}>
+            <Image
+              className={styles.newupcomimages}
+              src="/neatdreassedyoth1.jpg"
+              alt=""
+              width={400}
+              height={600}
+            />
+            <div className={styles.darkoverlayonupcom}></div>
+            <div className={styles.eventtagonupcom}>Event</div>
+            <div className={styles.shorteventtextonupcom}>
+              <p>
+                The yearly youth camp is here again but with a tastty twist
+                twist me and twist that we are gettign twitted oo...
+              </p>
+              <p>Learn More</p>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className={styles.upcomingactivities}>
         <div className={styles.upcomheading}>Sunday, Wednesday, Fun Days</div>
         <div className={styles.upcomesubheading}>
@@ -260,7 +315,9 @@ export default function Home() {
       </section>
       <section className={styles.uhaveaplaceheresection}>
         <h1>YOU HAVE A PLACE HERE</h1>
-        <p>Visit <span className={styles.zionholychurch}>Zion Holy Church</span></p>
+        <p>
+          Visit <span className={styles.zionholychurch}>Zion Holy Church</span>
+        </p>
       </section>
     </main>
   );
