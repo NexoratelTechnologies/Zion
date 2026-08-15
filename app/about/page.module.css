@@ -1,0 +1,247 @@
+.fristpageofabout {
+  min-height: 90vh;
+}
+
+.openingtwotetsonabout {
+  display: flex;
+  padding: 1rem;
+}
+.openingtwotetsonabout p:first-of-type {
+  font-size: 4rem;
+  font-family: var(--font-anton), sans-serif;
+  letter-spacing: 4;
+  font-family: var(--font-give-you-glory), cursive;
+}
+.desginerfontsonabout {
+  font-family: var(--font-give-you-glory), cursive;
+}
+.openingtwotetsonabout p:nth-of-type(2) {
+  margin-left: auto;
+  font-family: var(--font-oswald), sans-serif;
+  margin-top: auto;
+}
+
+.abouthero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 1343px;
+  height: 500px;
+
+  padding: 1rem;
+}
+
+.aboutheroimage {
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.aboutussec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+.aboutussec h2 {
+  font-size: 2rem;
+  font-family: var(--font-oswald), sans-serif;
+}
+
+.aboutussec p {
+  width: 70%;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.missonsection {
+  background-color: rgba(0, 0, 0, 0.747);
+  padding: 2rem;
+  color: white;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.missonsection h2 {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 2rem;
+}
+
+.missonbox {
+  background-color: brown;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 3rem;
+  border-radius: 50%;
+}
+.missonbox h3 {
+  font-weight: bold;
+}
+
+.missonbox p {
+  font-family: var(--font-give-you-glory), cursive;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  font-size: 1.7rem;
+}
+
+.readmoremisson {
+  margin-top: 1rem;
+  padding: 0.2rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  border: 1px solid gray;
+  border-radius: 15px;
+  background-color: gray;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visionsec {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.visionsec h2 {
+  font-family: var(--font-anton), sans-serif;
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.visvaldiv {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 1rem 1rem;
+}
+
+.valuecard {
+  position: relative;
+  flex: 0 0 260px;
+  height: 380px;
+  border-radius: 160px 160px 16px 16px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1rem 1.5rem;
+  color: white;
+}
+
+.valuecardarc {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100px;
+}
+
+.valuecardarctext {
+  fill: white;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+}
+
+.valuecardword {
+  font-family: var(--font-give-you-glory), cursive;
+  font-size: 3.2rem;
+  margin-top: 4rem;
+}
+
+.valuecardsub {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+.learnmorebtnvisval {
+  margin-top: auto;
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 0.5rem 1.2rem;
+  color: white;
+  text-decoration: none;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.visvalcontrolsrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 700px;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+}
+
+.visvalplaybtn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.visvalscrollbar {
+  flex: 1;
+  height: 3px;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.visvalscrollbarfill {
+  width: 30%;
+  height: 100%;
+  background-color: #d21f1f;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .valuecard {
+    flex: 0 0 220px;
+    height: 340px;
+  }
+  .valuecardword {
+    font-size: 2.6rem;
+  }
+}
+
+.lastsecfirsttext {
+  background-color: black;
+  color: white;
+  padding: 3.5rem;
+  display: flex;
+}
+.lastsecfirsttext p {
+  width: 50%;
+  margin-left: auto;
+}
+
+.lastsecfirsttext h2 {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 2rem;
+}
+.imageonlastaboutsec {
+  position: relative;
+  width: 100%;
+  height: 400px; /* pick whatever height fits your design */
+}
+
+.imageitselflast {
+  object-fit: cover;
+}

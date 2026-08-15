@@ -1,0 +1,71 @@
+.overalldiveforcomp {
+  width: 280px;
+
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  bottom: 5%;
+  left: 75%;
+  z-index: 9999;
+  padding: 0.4rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.headingfrorecentsermon {
+  padding: 0.4rem;
+  margin-right: auto;
+}
+.headingfrorecentsermon p {
+  padding: 0.2rem;
+  background-color: rgba(165, 42, 42, 0.616);
+  border-radius: 15px;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  font-family: var(--font-oswald), sans-serif;
+  color: white;
+}
+
+.recentdivinnerbox {
+  background-color: white;
+  width: 250px;
+  height: 200px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.sermontitle {
+  position: absolute;
+  font-size: 2.2rem;
+  font-family: var(--font-give-you-glory), cursive;
+  top: 15%;
+  font-weight: bold;
+  left: 3%;
+}
+
+.sermondate {
+  position: absolute;
+  font-family: var(--font-give-you-glory), cursive;
+  left: 3%;
+  top: 2%;
+}
+.watconyoutube {
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  font-family: var(--font-oswald), sans-serif;
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  padding: 0.1rem;
+  border: 1px solid gray;
+  border-radius: 15px;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
+  font-size: 0.9rem;
+}

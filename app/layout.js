@@ -1,5 +1,4 @@
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import {
@@ -7,6 +6,10 @@ import {
   Roboto_Condensed,
   Edu_NSW_ACT_Cursive,
   Playfair_Display,
+  Anton,
+  Oswald,
+  Alex_Brush,
+  Give_You_Glory,
 } from "next/font/google";
 
 const poppins = Poppins({
@@ -14,7 +17,11 @@ const poppins = Poppins({
   variable: "--font-poppins",
   weight: ["400", "500", "600", "700"],
 });
-
+const giveYouGlory = Give_You_Glory({
+  subsets: ["latin"],
+  variable: "--font-give-you-glory",
+  weight: ["400"],
+});
 const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
   variable: "--font-roboto-condensed",
@@ -30,7 +37,26 @@ const eduCursive = Edu_NSW_ACT_Cursive({
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+});
+
+const anton = Anton({
+  subsets: ["latin"],
+  variable: "--font-anton",
+  weight: ["400"],
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  variable: "--font-oswald",
   weight: ["400", "500", "600", "700"],
+});
+
+const alexBrush = Alex_Brush({
+  subsets: ["latin"],
+  variable: "--font-alex-brush",
+  weight: ["400"],
 });
 
 export const metadata = {
@@ -42,14 +68,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${robotoCondensed.variable} ${eduCursive.variable}`}
+        className={`${poppins.variable} ${robotoCondensed.variable} ${eduCursive.variable} ${playfair.variable} ${anton.variable} ${oswald.variable} ${alexBrush.variable} ${giveYouGlory.variable}`}
       >
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         />
 
-        <Navbar />
         {children}
         <Footer />
       </body>

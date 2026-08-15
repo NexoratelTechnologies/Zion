@@ -5,11 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Navbar.module.css";
 
-export default function Navbar() {
+export default function Navbar({ transparent = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className={styles.header}>
+    <header className={transparent ? styles.headerOverlay : styles.headerSolid}>
       <nav className={styles.nav}>
         <Link href="/">
           <Image
@@ -34,37 +34,37 @@ export default function Navbar() {
           <ul>
             <li>
               <Link href="/" onClick={() => setMenuOpen(false)}>
-                Home
+                HOME
               </Link>
             </li>
 
             <li>
               <Link href="/about" onClick={() => setMenuOpen(false)}>
-                About
+                ABOUT
               </Link>
             </li>
 
             <li>
               <Link href="/ministries" onClick={() => setMenuOpen(false)}>
-                Ministries
+                MINISTRIES
               </Link>
             </li>
 
             <li>
               <Link href="/events" onClick={() => setMenuOpen(false)}>
-                Events
+                EVENTS
               </Link>
             </li>
 
             <li>
               <Link href="/sermons" onClick={() => setMenuOpen(false)}>
-                Sermons
+                SERMONS
               </Link>
             </li>
 
             <li>
               <Link href="/gallery" onClick={() => setMenuOpen(false)}>
-                More
+                MORE
                 <span className={styles.moremagglass}>
                   ... <i className="fa-solid fa-magnifying-glass"></i>
                 </span>
