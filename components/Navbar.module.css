@@ -170,8 +170,7 @@
 
   .lastnavitems {
     gap: 1rem;
-
-    margin-right: 0;
+    margin-left: 2.4rem;
   }
 
   .hamburgerbtn {

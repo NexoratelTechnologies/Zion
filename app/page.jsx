@@ -162,13 +162,23 @@ export default function Home() {
         </div>
         <div className={styles.firstsetofpptxtbgs}>
           <div className={styles.pptxtbg1}>
+            <Image src="/burgundybg1.jpg" alt="" width={280} height={320} />
+            <div className={styles.textindidepptx}>
+              <p>Pastors Appreciation Day on the 24th of August...</p>
+              <p>Learn More</p>
+            </div>
+            <div className={styles.smileyfaceonppt}>
+              <i className="fa-regular fa-face-smile"></i>
+            </div>
+          </div>
+          {/*  <div className={styles.pptxtbg1}>
             <Image
-              src="/papertexturebg1.avif"
+              src="/black-square-background1.avif"
               alt=""
               width={280}
               height={320}
             />
-          </div>
+          </div> */}
           <div className={styles.pptxtbg1}>
             <Image
               src="/black-square-background1.avif"
@@ -176,21 +186,81 @@ export default function Home() {
               width={280}
               height={320}
             />
-          </div>
-          <div className={styles.pptxtbg1}>
-            <Image
-              src="/black-square-background1.avif"
-              alt=""
-              width={280}
-              height={320}
-            />
+            <div className={styles.textindidepptx}>
+              <p>Choir Appreciation Day on the 24th of August...</p>
+              <p>Learn More</p>
+            </div>
+            <div className={styles.guitaronpptx}>
+              <i className="fa-solid fa-guitar"></i>
+            </div>
           </div>
         </div>
         <div className={styles.secondsetofpptxtbgs}>
           <div className={styles.pptxtbg2}>
             <Image src="/burgundybg1.jpg" alt="" width={380} height={320} />
           </div>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            width={430}
+            height={340}
+            className={styles.praiseandworshipvid}
+          >
+            <source src="/praiseworhipvidnew1.MOV" type="video/mp4" />
+          </video>
+          <div className={styles.learnmoreonpraisevid}>Upcoming Events</div>
         </div>
+      </section>
+      <section className={styles.campandministriedonhome}>
+        <div className={styles.camplongimage}>
+          <Image
+            className={styles.camplongimageitself}
+            src="/boygirlpiclc2.jpg"
+            alt=""
+            width={400}
+            height={400}
+          />
+          <div className={styles.divunderlongcampandminimage}>
+            <h3>Prayer Camp</h3>
+            <p>
+              Youth camp featuring youth from all our church branches from 13th
+              to 24th
+            </p>
+            <p>Book Prayer Camp</p>
+          </div>
+        </div>
+
+        <div className={styles.ministriedlongimage}>
+          <Image
+            className={styles.camplongimageitself}
+            src="/churchyouthunsplash1.avif"
+            alt=""
+            width={400}
+            height={400}
+          />
+
+          <div className={styles.divunderlongcampandminimage}>
+            <h3>Ministries</h3>
+            <p>Find Your Place</p>
+            <div className={styles.ministriesrulesepdiv}>
+              <div className={styles.firsmin}>Adult</div>
+              <div className={styles.firstinrule}></div>
+              <div className={styles.firsmin}>Youth</div>
+              <div className={styles.firstinrule}></div>
+              <div className={styles.firsmin}>Children</div>
+            </div>
+            <p>Ministires</p>
+          </div>
+        </div>
+      </section>
+      <section className={styles.gallerysection}>
+        <h2>LIFE AT ZION</h2>
+      </section>
+      <section className={styles.uhaveaplaceheresection}>
+        <h1>YOU HAVE A PLACE HERE</h1>
+        <p>Visit <span className={styles.zionholychurch}>Zion Holy Church</span></p>
       </section>
     </main>
   );

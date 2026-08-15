@@ -281,9 +281,67 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.pptxtbg1 {
+  position: relative;
+}
+.textindidepptx {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+}
+.textindidepptx p:first-child {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.9rem;
+  width: 90%;
+  text-align: left;
+  color: white;
+}
+.textindidepptx p:nth-of-type(2) {
+  padding: 0.4rem;
+  width: 180px;
+  border: 2px solid white;
+  border-radius: 15px;
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+}
+.smileyfaceonppt i {
+  position: absolute;
+  font-size: 8rem;
+  top: 0;
+  right: 0;
+  transform: rotate(25deg);
+  color: rgba(0, 0, 0, 0.603);
+}
+.guitaronpptx {
+  position: absolute;
+  font-size: 8rem;
+  top: 0;
+  right: 0;
+
+  color: rgba(255, 255, 255, 0.692);
+}
+.secondsetofpptxtbgs {
+  position: relative;
+}
+.praiseandworshipvid {
+  border-radius: 12px;
+  object-fit: cover;
+  position: absolute;
+}
+.learnmoreonpraisevid {
+  position: absolute;
+  border: 2px solid white;
+  font-family: var(--font-poppins), sans-serif;
+  width: 170px;
+  margin-top: 1rem;
+  border-radius: 15px;
+  color: white;
+  padding: 0.3rem;
+  top: 75%;
+}
 .pptxtbg1 img {
-  width: 280px;
-  height: 320px;
+  width: 480px;
+  height: 280px;
   border-radius: 12px;
   object-fit: cover;
 }
@@ -295,13 +353,116 @@
   justify-content: center;
 }
 .pptxtbg2 img {
-  width: 380px;
+  width: 430px;
   height: 320px;
   border-radius: 12px;
   object-fit: cover;
 }
 
+.campandministriedonhome {
+  background-color: rgb(235, 235, 235);
+  padding: 3rem;
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
+.camplongimageitself {
+  border-radius: 12px;
+}
+
+.ministriedlongimage {
+  margin-top: 3rem;
+}
+.divunderlongcampandminimage {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.divunderlongcampandminimage h3 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.divunderlongcampandminimage p {
+  font-family: var(--font-poppins), sans-serif;
+}
+.divunderlongcampandminimage p:first-of-type {
+  font-size: 0.9rem;
+}
+
+.divunderlongcampandminimage p:nth-of-type(2) {
+  background-color: rgb(177, 35, 35);
+  padding: 0.4rem;
+  width: 180px;
+  margin-top: 0.4rem;
+  border-radius: 15px;
+  border: 2px solid brown;
+}
+.ministriesrulesepdiv {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.4rem;
+}
+.firstinrule {
+  background-color: brown;
+  width: 2px;
+  height: 20px;
+}
+.gallerysection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  height: 70vh;
+}
+
+.gallerysection h2 {
+  font-size: 2rem;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+}
+
+.uhaveaplaceheresection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.uhaveaplaceheresection h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  font-size: 3.5rem;
+}
+.uhaveaplaceheresection p {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1.3rem;
+}
+.zionholychurch {
+  font-family: "Edu NSW ACT Cursive", cursive;
+  font-size: 1.5rem;
+  color: rgb(209, 36, 36);
+}
 /* MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .campandministriedonhome {
+    gap: 2.5rem;
+    padding: 2rem;
+  }
+
+  .divunderlongcampandminimage {
+    width: 280px;
+  }
+
+  .secondsetofpptxtbgs {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 900px) {
   .herotexts h2 {
     font-size: 2.6rem;
@@ -311,6 +472,38 @@
   }
   .LSSheading {
     font-size: 2.4rem;
+  }
+
+  .textindidepptx p:first-child {
+    font-size: 1.5rem;
+  }
+  .smileyfaceonppt i,
+  .guitaronpptx {
+    font-size: 5.5rem;
+  }
+
+  .campandministriedonhome {
+    flex-direction: column;
+    align-items: center;
+  }
+  .ministriedlongimage {
+    margin-top: 0;
+  }
+
+  .gallerysection {
+    height: 50vh;
+  }
+  .gallerysection h2 {
+    font-size: 1.6rem;
+  }
+
+  .uhaveaplaceheresection h1 {
+    font-size: 2.6rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  .uhaveaplaceheresection p {
+    font-size: 1.1rem;
   }
 }
 
@@ -336,5 +529,74 @@
   .pptxtbg2 img {
     width: 90vw;
     max-width: 320px;
+  }
+
+  .firstsetofpptxtbgs {
+    gap: 1.5rem;
+  }
+  .textindidepptx {
+    left: 8%;
+  }
+  .textindidepptx p:first-child {
+    font-size: 1.2rem;
+    width: 100%;
+  }
+  .textindidepptx p:nth-of-type(2) {
+    width: 150px;
+    font-size: 0.85rem;
+  }
+  .smileyfaceonppt i,
+  .guitaronpptx {
+    font-size: 4rem;
+  }
+
+  .secondsetofpptxtbgs {
+    flex-direction: column;
+    align-items: center;
+  }
+  .secondsetofpptxtbgs .pptxtbg2 img {
+    width: 90vw;
+    max-width: 320px;
+    height: auto;
+  }
+  .praiseandworshipvid {
+    width: 90vw !important;
+    max-width: 320px;
+    height: auto !important;
+  }
+  .learnmoreonpraisevid {
+    width: 140px;
+    font-size: 0.9rem;
+  }
+
+  .divunderlongcampandminimage {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .ministriesrulesepdiv {
+    gap: 0.6rem;
+  }
+
+  .uhaveaplaceheresection h1 {
+    font-size: 2rem;
+  }
+  .zionholychurch {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .heroboxes {
+    gap: 1.2rem;
+  }
+  .heroboxes button {
+    width: 110px;
+    font-size: 0.85rem;
+  }
+  .LSSheading {
+    font-size: 1.8rem;
+  }
+  .upcomheading {
+    font-size: 2rem;
   }
 }
