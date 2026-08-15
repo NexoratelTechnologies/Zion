@@ -1,0 +1,90 @@
+.firstsec {
+  padding: 2rem;
+  background-color: rgb(231, 229, 229);
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  border-radius: 12px;
+  border: 3px solid brown;
+  position: relative;
+  height: 200px;
+}
+
+.innertext {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 1.7rem;
+  position: absolute;
+  left: 30%;
+  top: 25%;
+}
+
+.boxesdiv {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  top: 80%;
+  right: 1%;
+}
+
+.box1 {
+  padding: 1.4rem;
+  background-color: rgb(231, 229, 229);
+  border: 3px solid brown;
+  width: 270px;
+  font-family: var(--font-oswald), sans-serif;
+}
+.displayedministry {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.displayedministry h2 {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-decoration-color: brown;
+  text-decoration-style: 2px;
+}
+.actualminstrystuff {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 5rem;
+  margin-top: 2rem;
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.leftsideofministrystuff {
+  width: 40%;
+}
+
+.ministryimage {
+  border-radius: 15px;
+}
+
+.departmentinminstry{
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem ;
+}
+.depone{
+    font-family: var(--font-oswald), sans-serif;
+    font-size: 2rem;
+}
+.ruleoen{
+    width: 2px;
+    height: 50px;
+    background-color: brown;
+}
+
+.joinmiistry{
+    padding: 0.2rem;
+    width: 180px;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
