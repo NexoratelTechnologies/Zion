@@ -1,19 +1,25 @@
-.headerOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.headerOverlay,
+.headerSolid {
+  --brown-deep: #3e2317;
+  --brown-mid: #8b5a2b;
+  --brown-light: #d9b48f;
+  --brown-gold: #e0b878;
+  --cream: #f3e6d8;
+
   width: 100%;
   z-index: 10;
   display: flex;
   flex-direction: column;
 }
 
+.headerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .headerSolid {
   position: relative;
-  width: 100%;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
 }
 
 .nav {
@@ -21,7 +27,24 @@
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.575);
+  padding: 0 2rem;
+}
+
+.headerOverlay .nav {
+  background: linear-gradient(
+    180deg,
+    rgba(62, 35, 23, 0.55) 0%,
+    rgba(62, 35, 23, 0.15) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.headerSolid .nav {
+  background: rgba(43, 25, 16, 0.97);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
 }
 
 .middlenavlist {
@@ -34,47 +57,225 @@
   gap: 2.5rem;
   font-family: var(--font-poppins), sans-serif;
   align-items: center;
-  color: wheat;
+  margin: 0;
+  padding: 0;
 }
 
 .middlenavlist ul li a {
-  color: wheat;
+  color: var(--cream);
   text-decoration: none;
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding-bottom: 6px;
+  transition: color 0.25s ease;
+}
+
+.middlenavlist ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--brown-light);
+  transition: width 0.25s ease;
+}
+
+.middlenavlist ul li a:hover {
+  color: var(--brown-gold);
+}
+
+.middlenavlist ul li a:hover::after {
+  width: 100%;
+}
+
+.activeLink {
+  color: var(--brown-gold) !important;
+}
+
+.activeLink::after {
+  width: 100%;
+  background: var(--brown-gold) !important;
+}
+
+/* =========================
+   MORE DROPDOWN
+========================= */
+
+.moreitem {
+  position: relative;
+  list-style: none;
+}
+
+.morebtn {
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding-bottom: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.morebtn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--brown-light);
+  transition: width 0.25s ease;
+}
+
+.morebtn:hover {
+  color: var(--brown-gold);
+}
+
+.morebtn:hover::after {
+  width: 100%;
 }
 
 .moremagglass i {
-  color: red;
-  font-size: 0.8rem;
-  position: relative;
-  bottom: 4px;
-  transform: rotateX(180deg);
+  color: var(--brown-light);
+  font-size: 0.7rem;
+  transition: transform 0.25s ease;
 }
 
-.lastnavitems {
-  margin-right: 3rem;
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.moredropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 200px;
+  background: rgba(43, 25, 16, 0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(217, 180, 143, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.45);
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+  z-index: 20;
+}
+
+.moredropdown::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: rgba(43, 25, 16, 0.97);
+  border-left: 1px solid rgba(217, 180, 143, 0.25);
+  border-top: 1px solid rgba(217, 180, 143, 0.25);
+}
+
+.moredropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.moredropdown a {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 0.6rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  color: var(--cream);
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.moredropdown a:hover {
+  background: rgba(217, 180, 143, 0.15);
+  color: var(--brown-gold);
+}
+
+.moredropdown a i {
+  width: 16px;
+  text-align: center;
+  color: var(--brown-light);
+}
+
+/* =========================
+   CAMP BUTTON / PROFILE
+========================= */
+
+.lastnavitems {
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .campbookbtn {
   width: 100px;
-  height: 35px;
+  height: 36px;
   font-family: var(--font-roboto-condensed), sans-serif;
   font-size: 0.9rem;
-  border-radius: 7px;
-  background-color: rgba(160, 4, 4, 0.801);
-  border: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: 8px;
+  border: 1px solid rgba(217, 180, 143, 0.4);
+  background: linear-gradient(135deg, var(--brown-mid), var(--brown-deep));
+  color: var(--cream);
   cursor: pointer;
+  box-shadow: 0 6px 16px -6px rgba(62, 35, 23, 0.6);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.campbookbtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -6px rgba(62, 35, 23, 0.7);
 }
 
 .profilebubble {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(160, 4, 4, 0.801);
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--brown-mid), var(--brown-deep));
   border-radius: 50%;
   overflow: hidden;
   display: block;
+  border: 2px solid rgba(217, 180, 143, 0.5);
+  box-shadow: 0 4px 12px rgba(62, 35, 23, 0.4);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.profilebubble:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(62, 35, 23, 0.5);
 }
 
 .profilebubble img {
@@ -83,12 +284,39 @@
   object-fit: cover;
 }
 
+/* =========================
+   UPCOMING EVENT BAR
+========================= */
+
 .upcomingeventtag {
   display: flex;
   justify-content: center;
-  background-color: rgba(255, 235, 205, 0.842);
-  padding: 0.2rem;
+  background: rgba(43, 25, 16, 0.94);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 0.45rem 1rem;
   font-family: var(--font-roboto-condensed), sans-serif;
+  border-top: 1px solid rgba(217, 180, 143, 0.2);
+}
+
+.upcomingeventtag p {
+  color: var(--cream);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+/* =========================
+   FOCUS STATES
+========================= */
+
+.middlenavlist ul li a:focus-visible,
+.morebtn:focus-visible,
+.campbookbtn:focus-visible,
+.profilebubble:focus-visible,
+.moredropdown a:focus-visible {
+  outline: 2px solid var(--brown-gold);
+  outline-offset: 3px;
 }
 
 /* =========================
@@ -99,9 +327,23 @@
   display: none;
   background: none;
   border: none;
-  color: wheat;
+  color: var(--cream);
   font-size: 1.6rem;
   cursor: pointer;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+  .middlenavlist ul {
+    gap: 1.6rem;
+  }
+  .lastnavitems {
+    gap: 1.2rem;
+    margin-right: 1.2rem;
+  }
 }
 
 /* =========================
@@ -109,14 +351,21 @@
 ========================= */
 
 @media (max-width: 768px) {
+  .nav {
+    padding: 0 1rem;
+  }
+
   .middlenavlist {
     position: absolute;
     top: 80px;
     left: 0;
     right: 0;
-    background-color: rgb(85, 85, 85);
+    background: rgba(43, 25, 16, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: none;
-    padding: 1rem 0;
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(217, 180, 143, 0.15);
   }
 
   .open {
@@ -129,12 +378,70 @@
     align-items: center;
   }
 
+  .moreitem {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .morebtn {
+    justify-content: center;
+  }
+
+  .moredropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    box-shadow: none;
+    border: none;
+    background: rgba(0, 0, 0, 0.18);
+    margin-top: 0.6rem;
+    width: 90%;
+  }
+
+  .moredropdown::before {
+    display: none;
+  }
+
+  .moredropdownOpen {
+    display: flex;
+  }
+
   .lastnavitems {
     gap: 1rem;
-    margin-left: 2.4rem;
+    margin-left: 2rem;
   }
 
   .hamburgerbtn {
     display: block;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 480px) {
+  .lastnavitems {
+    gap: 0.6rem;
+  }
+
+  .campbookbtn {
+    width: 76px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .profilebubble {
+    width: 38px;
+    height: 38px;
+  }
+
+  .upcomingeventtag p {
+    font-size: 0.75rem;
+    text-align: center;
   }
 }

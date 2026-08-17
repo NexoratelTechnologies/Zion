@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import RecentSermon from "@/components/RecentSermon";
+import Footer from "@/components/Footer";
 
 import styles from "./page.module.css";
 
@@ -30,153 +31,98 @@ export default function About() {
             />
           </div>
         </section>
+
         <section className={styles.aboutussec}>
-          <h2>ABOUT US</h2>
-          <p>
-            We are a Christ-centered church committed to creating a place where
-            people can encounter God, grow in their faith, and discover their
-            purpose. We believe church is more than a place of worship. It is a
-            community where people can find encouragement, build meaningful
-            relationships, and grow together. Through worship, prayer, biblical
-            teaching, fellowship, and service, we seek to help individuals
-            develop a deeper relationship with God and live out their faith in
-            their everyday lives. We welcome people from all walks of life and
-            strive to create an environment where everyone feels valued,
-            accepted, and encouraged to grow.
-          </p>
-        </section>
-        <section className={styles.missonsection}>
-          <h2>Mission Statement</h2>
-          <div className={styles.missonbox}>
-            <h3>Matthew 28:19 (ESV)</h3>
-            <p>
-              “Go therefore and make disciples of all nations, baptizing them in
-              the name of the Father and of the Son and of the Holy Spirit.”
+          <span className={styles.aboutuswatermark}>FAITH</span>
+          <div className={styles.aboutusgrid}>
+            <div className={styles.aboutuslabel}>
+              <span className={styles.aboutuseyebrow}>who we are</span>
+              <h2>About Us</h2>
+            </div>
+            <p className={styles.aboutustext}>
+              <span className={styles.aboutusdropcap}>W</span>e are a{" "}
+              <span className={styles.aboutushighlight}>
+                Christ-centered church
+              </span>{" "}
+              committed to creating a place where people can encounter God, grow
+              in their faith, and discover their purpose. We believe church is
+              more than a place of worship. It is a community where people can
+              find encouragement, build meaningful relationships, and grow
+              together. Through worship, prayer, biblical teaching, fellowship,
+              and service, we seek to help individuals develop a deeper
+              relationship with God and live out their faith in their everyday
+              lives. We welcome people from all walks of life and strive to
+              create an environment where everyone feels valued, accepted, and
+              encouraged to grow.
             </p>
           </div>
-          <div className={styles.readmoremisson}>Read More</div>
         </section>
-        <section className={styles.visionsec}>
-          <h2>Vision Values</h2>
-          <div className={styles.visvaldiv}>
-            <div
-              className={styles.valuecard}
-              style={{ backgroundColor: "#e0115f" }}
-            >
-              <svg viewBox="0 0 300 300" className={styles.valuecardarc}>
-                <path
-                  id="arcpath1"
-                  d="M 40,150 A 110,110 0 0 1 260,150"
-                  fill="none"
-                />
-                <text className={styles.valuecardarctext}>
-                  <textPath
-                    href="#arcpath1"
-                    startOffset="50%"
-                    textAnchor="middle"
-                  >
-                    VISION VALUE
-                  </textPath>
-                </text>
-              </svg>
-              <h3 className={styles.valuecardword}>Faith</h3>
-              <Link href="/about" className={styles.learnmorebtnvisval}>
-                learn more <i className="fa-solid fa-arrow-right"></i>
+
+        <section className={styles.missonsection}>
+          <span className={styles.missonwatermark}>28:19</span>
+          <div className={styles.missongrid}>
+            <div className={styles.missonintro}>
+              <span className={styles.missoneyebrow}>our mission</span>
+              <h2>Mission Statement</h2>
+              <p className={styles.missonlede}>
+                Everything we do points back to one command — go, make, baptize,
+                teach.
+              </p>
+              <Link href="/about" className={styles.readmoremisson}>
+                Read More <i className="fa-solid fa-arrow-right"></i>
               </Link>
             </div>
 
-            <div
-              className={styles.valuecard}
-              style={{ backgroundColor: "#d21f1f" }}
-            >
-              <svg viewBox="0 0 300 300" className={styles.valuecardarc}>
-                <path
-                  id="arcpath2"
-                  d="M 40,150 A 110,110 0 0 1 260,150"
-                  fill="none"
-                />
-                <text className={styles.valuecardarctext}>
-                  <textPath
-                    href="#arcpath2"
-                    startOffset="50%"
-                    textAnchor="middle"
-                  >
-                    VISION VALUE
-                  </textPath>
-                </text>
-              </svg>
+            <div className={styles.missonbox}>
+              <span className={styles.missonquote}>&ldquo;</span>
+              <h3>Matthew 28:19 (ESV)</h3>
+              <p>
+                Go therefore and make disciples of all nations, baptizing them
+                in the name of the Father and of the Son and of the Holy Spirit.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.visionsec}>
+          <span className={styles.visioneyebrow}>what we stand on</span>
+          <h2>Vision Values</h2>
+
+          <div className={styles.visvaldiv}>
+            <div className={styles.valuecard}>
+              <h3 className={styles.valuecardword}>Faith</h3>
+              <p className={styles.valuecardsub}>Zion</p>
+              <Link href="/about" className={styles.learnmorebtnvisval}>
+                Learn more <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
+
+            <div className={styles.valuecard}>
               <h3 className={styles.valuecardword}>Hope</h3>
               <p className={styles.valuecardsub}>Zion</p>
               <Link href="/about" className={styles.learnmorebtnvisval}>
-                learn more <i className="fa-solid fa-arrow-right"></i>
+                Learn more <i className="fa-solid fa-arrow-right"></i>
               </Link>
             </div>
 
-            <div
-              className={styles.valuecard}
-              style={{ backgroundColor: "#1a3fc4" }}
-            >
-              <svg viewBox="0 0 300 300" className={styles.valuecardarc}>
-                <path
-                  id="arcpath3"
-                  d="M 40,150 A 110,110 0 0 1 260,150"
-                  fill="none"
-                />
-                <text className={styles.valuecardarctext}>
-                  <textPath
-                    href="#arcpath3"
-                    startOffset="50%"
-                    textAnchor="middle"
-                  >
-                    VISION VALUE
-                  </textPath>
-                </text>
-              </svg>
+            <div className={styles.valuecard}>
               <h3 className={styles.valuecardword}>Love</h3>
               <p className={styles.valuecardsub}>Zion</p>
               <Link href="/about" className={styles.learnmorebtnvisval}>
-                learn more <i className="fa-solid fa-arrow-right"></i>
+                Learn more <i className="fa-solid fa-arrow-right"></i>
               </Link>
             </div>
 
-            <div
-              className={styles.valuecard}
-              style={{ backgroundColor: "#7a1fc4" }}
-            >
-              <svg viewBox="0 0 300 300" className={styles.valuecardarc}>
-                <path
-                  id="arcpath4"
-                  d="M 40,150 A 110,110 0 0 1 260,150"
-                  fill="none"
-                />
-                <text className={styles.valuecardarctext}>
-                  <textPath
-                    href="#arcpath4"
-                    startOffset="50%"
-                    textAnchor="middle"
-                  >
-                    VISION VALUE
-                  </textPath>
-                </text>
-              </svg>
+            <div className={styles.valuecard}>
               <h3 className={styles.valuecardword}>Grace</h3>
               <p className={styles.valuecardsub}>Zion</p>
               <Link href="/about" className={styles.learnmorebtnvisval}>
-                learn more <i className="fa-solid fa-arrow-right"></i>
+                Learn more <i className="fa-solid fa-arrow-right"></i>
               </Link>
             </div>
           </div>
-
-          <div className={styles.visvalcontrolsrow}>
-            <div className={styles.visvalplaybtn}>
-              <i className="fa-solid fa-play"></i>
-            </div>
-            <div className={styles.visvalscrollbar}>
-              <div className={styles.visvalscrollbarfill}></div>
-            </div>
-          </div>
         </section>
-        <section className={styles.lastaboutsection}>
+        {/* <section className={styles.lastaboutsection}>
           <div className={styles.lastsecfirsttext}>
             <h2>NPPD</h2>
             <p>
@@ -184,7 +130,7 @@ export default function About() {
               Voluptatem vero veniam recusandae in illum nobis facilis tempora,
               nihil facere aspernatur pariatur assumenda ut officiis tempore
               laborum autem id quas obcaecati?
-            </p>{" "}
+            </p>
           </div>
           <div className={styles.imageonlastaboutsec}>
             <Image
@@ -194,9 +140,10 @@ export default function About() {
               className={styles.imageitselflast}
             />
           </div>
-        </section>
+        </section> */}
       </main>
       <RecentSermon />
+      <Footer />
     </>
   );
 }

@@ -8,9 +8,8 @@
 }
 .openingtwotetsonabout p:first-of-type {
   font-size: 4rem;
-  font-family: var(--font-anton), sans-serif;
-  letter-spacing: 4;
   font-family: var(--font-give-you-glory), cursive;
+  letter-spacing: 4px;
 }
 .desginerfontsonabout {
   font-family: var(--font-give-you-glory), cursive;
@@ -25,9 +24,10 @@
   position: relative;
   display: flex;
   justify-content: center;
-  width: 1343px;
+  width: 100%;
+  max-width: 1343px;
+  margin: 0 auto;
   height: 500px;
-
   padding: 1rem;
 }
 
@@ -36,190 +36,341 @@
   border-radius: 15px;
 }
 
+/* =========================
+   ABOUT US
+========================= */
+
 .aboutussec {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 3rem;
-}
-.aboutussec h2 {
-  font-size: 2rem;
-  font-family: var(--font-oswald), sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin-top: 5rem;
+  padding: 3rem 1.5rem 4rem;
 }
 
-.aboutussec p {
-  width: 70%;
-  text-align: center;
-  font-size: 1.4rem;
+.aboutuswatermark {
+  position: absolute;
+  top: -3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-give-you-glory), cursive;
+  font-size: clamp(6rem, 16vw, 12rem);
+  color: #a52a2a;
+  opacity: 0.05;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
 }
+
+.aboutusgrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.aboutuslabel {
+  position: sticky;
+  top: 6rem;
+}
+
+.aboutuseyebrow {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a52a2a;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.aboutuslabel h2 {
+  font-size: 2.4rem;
+  font-family: var(--font-oswald), sans-serif;
+  color: #3e2317;
+  line-height: 1.15;
+}
+
+.aboutustext {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: #4a4038;
+}
+
+.aboutusdropcap {
+  float: left;
+  font-family: var(--font-oswald), sans-serif;
+  font-weight: 700;
+  font-size: 4.6rem;
+  line-height: 0.78;
+  color: #a52a2a;
+  margin-right: 0.6rem;
+  margin-top: 0.3rem;
+}
+
+.aboutushighlight {
+  color: #a52a2a;
+  font-weight: 600;
+}
+
+/* =========================
+   MISSION SECTION
+========================= */
 
 .missonsection {
-  background-color: rgba(0, 0, 0, 0.747);
-  padding: 2rem;
-  color: white;
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1f1712 0%, #2b1f17 100%);
+  padding: 5rem 1.5rem;
+  color: #f3e6d8;
+  margin-top: 5rem;
+}
+
+.missonwatermark {
+  position: absolute;
+  bottom: -2.5rem;
+  right: -1rem;
+  font-family: var(--font-oswald), sans-serif;
+  font-weight: 700;
+  font-size: clamp(6rem, 18vw, 14rem);
+  color: #f3e6d8;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.missongrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
   align-items: center;
 }
 
-.missonsection h2 {
+.missonintro {
+  display: flex;
+  flex-direction: column;
+}
+
+.missoneyebrow {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d9b48f;
+}
+
+.missonintro h2 {
   font-family: var(--font-oswald), sans-serif;
-  font-size: 2rem;
+  font-size: 2.4rem;
+  margin-top: 0.6rem;
+}
+
+.missonlede {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1rem;
+  color: #cbb9a6;
+  line-height: 1.6;
+  margin-top: 1rem;
+  max-width: 380px;
+}
+
+.readmoremisson {
+  margin-top: 2rem;
+  padding: 0.65rem 1.6rem;
+  border-radius: 30px;
+  background-color: #a52a2a;
+  color: #f3e6d8;
+  text-decoration: none;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  transition:
+    background-color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.readmoremisson:hover {
+  background-color: #8a2222;
+  transform: translateY(-2px);
+}
+
+.readmoremisson:focus-visible {
+  outline: 2px solid #d9b48f;
+  outline-offset: 3px;
 }
 
 .missonbox {
-  background-color: brown;
-  text-align: center;
-  margin-top: 1rem;
-  padding: 3rem;
-  border-radius: 50%;
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
+  text-align: left;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
 }
+
+.missonquote {
+  position: absolute;
+  top: -1rem;
+  left: 1.8rem;
+  font-family: Georgia, serif;
+  font-size: 4.5rem;
+  color: #a52a2a;
+  opacity: 0.7;
+  line-height: 1;
+}
+
 .missonbox h3 {
-  font-weight: bold;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d9b48f;
 }
 
 .missonbox p {
   font-family: var(--font-give-you-glory), cursive;
-  width: 70%;
-  margin: 0 auto;
-  margin-top: 2rem;
-  font-size: 1.7rem;
+  margin-top: 1.5rem;
+  font-size: 1.9rem;
+  line-height: 1.4;
+  color: #f3e6d8;
 }
 
-.readmoremisson {
-  margin-top: 1rem;
-  padding: 0.2rem;
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
-  border: 1px solid gray;
-  border-radius: 15px;
-  background-color: gray;
-  width: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* =========================
+   VISION VALUES
+========================= */
 
 .visionsec {
-  padding: 3rem 1rem;
+  padding: 4rem 1.5rem;
   text-align: center;
+  background-color: #fbf6f0;
+}
+
+.visioneyebrow {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #a52a2a;
+  display: block;
+  margin-bottom: 0.6rem;
 }
 
 .visionsec h2 {
   font-family: var(--font-anton), sans-serif;
   font-size: 2.6rem;
   text-transform: uppercase;
-  margin-bottom: 2.5rem;
+  color: #3e2317;
+  margin-bottom: 3rem;
 }
 
 .visvaldiv {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 0 1rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .valuecard {
-  position: relative;
-  flex: 0 0 260px;
-  height: 380px;
-  border-radius: 160px 160px 16px 16px;
-  scroll-snap-align: start;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2.5rem 1rem 1.5rem;
-  color: white;
+  box-shadow: 0 20px 40px -28px rgba(62, 35, 23, 0.35);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.valuecardarc {
-  position: absolute;
-  top: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 100px;
-}
-
-.valuecardarctext {
-  fill: white;
-  font-family: var(--font-poppins), sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.15em;
+.valuecard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 44px -24px rgba(62, 35, 23, 0.4);
 }
 
 .valuecardword {
   font-family: var(--font-give-you-glory), cursive;
-  font-size: 3.2rem;
-  margin-top: 4rem;
+  font-size: 2.8rem;
+  color: #a52a2a;
 }
 
 .valuecardsub {
   font-family: var(--font-oswald), sans-serif;
-  font-size: 1rem;
-  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9c8b7a;
+  margin-top: 0.4rem;
 }
 
 .learnmorebtnvisval {
-  margin-top: auto;
-  border: 2px solid white;
-  border-radius: 30px;
-  padding: 0.5rem 1.2rem;
-  color: white;
+  margin-top: 1.5rem;
+  color: #3e2317;
   text-decoration: none;
   font-family: var(--font-poppins), sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
 }
 
-.visvalcontrolsrow {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  max-width: 700px;
-  margin: 2rem auto 0;
-  padding: 0 1rem;
+.learnmorebtnvisval i {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
 }
 
-.visvalplaybtn {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  border: 1px solid #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  flex-shrink: 0;
+.learnmorebtnvisval:hover {
+  color: #a52a2a;
 }
 
-.visvalscrollbar {
-  flex: 1;
-  height: 3px;
-  background-color: #ddd;
-  border-radius: 10px;
+.learnmorebtnvisval:hover i {
+  transform: translateX(3px);
 }
 
-.visvalscrollbarfill {
-  width: 30%;
-  height: 100%;
-  background-color: #d21f1f;
-  border-radius: 10px;
+.learnmorebtnvisval:focus-visible {
+  outline: 2px solid #a52a2a;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-@media (max-width: 600px) {
-  .valuecard {
-    flex: 0 0 220px;
-    height: 340px;
-  }
-  .valuecardword {
-    font-size: 2.6rem;
+@media (max-width: 900px) {
+  .visvaldiv {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 500px) {
+  .visvaldiv {
+    grid-template-columns: 1fr;
+  }
+  .visionsec h2 {
+    font-size: 2rem;
+  }
+}
+/* =========================
+   LAST ABOUT SECTION
+========================= */
 
 .lastsecfirsttext {
   background-color: black;
@@ -236,12 +387,72 @@
   font-family: var(--font-oswald), sans-serif;
   font-size: 2rem;
 }
+
 .imageonlastaboutsec {
   position: relative;
   width: 100%;
-  height: 400px; /* pick whatever height fits your design */
+  height: 400px;
 }
 
 .imageitselflast {
   object-fit: cover;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .aboutusgrid,
+  .missongrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .aboutuslabel {
+    position: static;
+  }
+
+  .missonbox {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutuslabel h2,
+  .missonintro h2 {
+    font-size: 1.9rem;
+  }
+
+  .aboutustext {
+    font-size: 1rem;
+  }
+
+  .aboutusdropcap {
+    font-size: 3.6rem;
+  }
+
+  .missonbox {
+    padding: 2.5rem 1.75rem;
+  }
+
+  .missonbox p {
+    font-size: 1.5rem;
+  }
+
+  .missonquote {
+    font-size: 3.5rem;
+    left: 1.2rem;
+  }
+
+  .lastsecfirsttext {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .lastsecfirsttext p {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
 }

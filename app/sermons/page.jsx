@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 export default function Sermons() {
   return (
@@ -84,7 +85,55 @@ export default function Sermons() {
             </div>
           </div>
         </section>
+        <section className={styles.channelsec}>
+          <div className={styles.channelbannerdiv}>
+            <Image
+              src="/zionbanner1.png"
+              alt="Zion Chapel Banner"
+              fill
+              className={styles.channelbannerimage}
+            />
+          </div>
+
+          <div className={styles.channelinfowrapper}>
+            <div className={styles.channellogodiv}>
+              <Image
+                src="/ZionLogo1.webp"
+                alt="Zion Chapel"
+                width={90}
+                height={90}
+                className={styles.channellogo}
+              />
+            </div>
+
+            <div className={styles.channeldetailsdiv}>
+              <h2 className={styles.channelname}>Zion Chapel</h2>
+              <p className={styles.channelmeta}>
+                @ZionChapelOfficial &nbsp;·&nbsp; 4.2K subscribers &nbsp;·&nbsp;
+                210 videos
+              </p>
+              <p className={styles.channeltagline}>
+                Passionately Following Christ Together
+              </p>
+            </div>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.subscribebtnchannel}
+            >
+              Subscribe
+            </a>
+          </div>
+
+          <p className={styles.channelnotice}>
+            All recorded sermons are available on our YouTube channel, and our
+            live services are streamed there too — subscribe so you never miss a
+            session.
+          </p>
+        </section>
       </main>
+      <Footer />
     </>
   );
 }

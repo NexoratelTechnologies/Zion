@@ -1,0 +1,297 @@
+.firstcampsec {
+  background-color: rgba(235, 235, 235, 0.486);
+  display: flex;
+  width: 100%;
+  padding: 2rem;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.campimagediv {
+  position: relative;
+  width: 600px;
+  height: 550px;
+  flex-shrink: 0;
+}
+
+.campimageitself {
+  object-fit: cover;
+  clip-path: path(
+    "M0,0 H480 C560,0 560,60 560,120 V430 C560,490 560,550 480,550 H0 Z"
+  );
+}
+
+.decorcircle1 {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: rgba(160, 4, 4, 0.3);
+  z-index: 0;
+}
+
+.decorcircle2 {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(160, 4, 4, 0.2);
+  z-index: 0;
+}
+
+.decorcircle3 {
+  position: absolute;
+  bottom: 60px;
+  right: -20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(160, 4, 4, 0.15);
+  z-index: 0;
+}
+
+.rightsideofcampsec {
+  flex: 1;
+}
+
+.rightsideofcampsec h1 {
+  font-family: var(--font-anton), sans-serif;
+  font-size: 2.6rem;
+  color: brown;
+}
+
+.rightsideofcampsec h2 {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 1.4rem;
+  margin-top: 0.3rem;
+}
+
+.rightsideofcampsec p {
+  font-family: var(--font-poppins), sans-serif;
+  margin-top: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.rightsideofcampsec button {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.8rem;
+  background-color: brown;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--font-poppins), sans-serif;
+  cursor: pointer;
+}
+
+.twotagsoncap {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.twotagsoncap p {
+  border: 1px solid brown;
+  border-radius: 20px;
+  padding: 0.3rem 1rem;
+  font-size: 0.85rem;
+  margin-top: 0;
+  color: brown;
+}
+
+@media (max-width: 900px) {
+  .firstcampsec {
+    flex-direction: column;
+  }
+  .campimagediv {
+    width: 100%;
+    height: 400px;
+  }
+  .campimageitself {
+    clip-path: none;
+    border-radius: 20px;
+  }
+}
+
+.whattoexpectsec {
+  padding: 3rem 2rem;
+}
+
+.wtetag {
+  color: #b8860b;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.wteheading {
+  font-family: var(--font-anton), sans-serif;
+  font-size: 2rem;
+  max-width: 600px;
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.wtewrapper {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.wteleftcol {
+  position: relative;
+  flex: 1;
+  height: 600px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.wtemiddlecol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  flex: 1;
+}
+
+.wterightcol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  flex: 1;
+}
+
+.wtebox {
+  position: relative;
+  height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.wtetallbox {
+  height: 340px;
+}
+
+.wteimage {
+  object-fit: cover;
+}
+
+.wteoverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+}
+
+.wtetext {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  right: 1.2rem;
+  color: white;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.wtetextdark {
+  color: white;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .wtewrapper {
+    flex-direction: column;
+  }
+  .wteleftcol {
+    height: 350px;
+  }
+  .wtebox,
+  .wtetallbox {
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .firstcampsec {
+    padding: 1.2rem;
+  }
+
+  .campimagediv {
+    height: 320px;
+  }
+
+  .rightsideofcampsec h1 {
+    font-size: 2rem;
+  }
+
+  .rightsideofcampsec h2 {
+    font-size: 1.1rem;
+  }
+
+  .rightsideofcampsec button {
+    width: 100%;
+  }
+
+  .twotagsoncap {
+    flex-wrap: wrap;
+  }
+
+  .whattoexpectsec {
+    padding: 2rem 1rem;
+  }
+
+  .wteheading {
+    font-size: 1.5rem;
+  }
+
+  .wteleftcol {
+    height: 250px;
+  }
+
+  .wtebox,
+  .wtetallbox {
+    height: 180px;
+  }
+
+  .wtetext {
+    font-size: 1rem;
+  }
+
+  .wtetextdark {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .decorcircle1,
+  .decorcircle2,
+  .decorcircle3 {
+    display: none;
+  }
+
+  .rightsideofcampsec h1 {
+    font-size: 1.7rem;
+  }
+
+  .wteheading {
+    font-size: 1.3rem;
+  }
+}

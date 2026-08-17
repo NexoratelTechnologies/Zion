@@ -1,5 +1,4 @@
 import "./globals.css";
-import Footer from "@/components/Footer";
 
 import {
   Poppins,
@@ -76,7 +75,6 @@ export default function RootLayout({ children }) {
         />
 
         {children}
-        <Footer />
       </body>
     </html>
   );

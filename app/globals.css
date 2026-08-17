@@ -13,9 +13,13 @@ main {
   flex: 1;
 }
 
-
-
-
-
+:root {
+  --brown-deep: #3e2317;
+  --brown-mid: #8b5a2b;
+  --brown-light: #d9b48f;
+  --brown-gold: #e0b878;
+  --cream: #f3e6d8;
+  --brown-classic: #a52a2a;
+}
 
 @import "tailwindcss";
