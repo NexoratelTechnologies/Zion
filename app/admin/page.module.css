@@ -1,34 +1,9 @@
 .adminPage {
-  --brown-deep: #2b1910;
-  --brown-deeper: #1d100a;
-  --brown-mid: #6f4325;
-  --brown-gold: #d9ae73;
-  --cream: #f3e6d8;
+  max-width: 1350px;
 
-  --surface: rgba(255, 248, 239, 0.045);
-  --surface-hover: rgba(255, 248, 239, 0.065);
-  --border: rgba(217, 180, 143, 0.14);
+  margin: 0 auto;
 
-  min-height: 100vh;
-
-  padding: 3rem clamp(1.25rem, 4vw, 4rem);
-
-  background:
-    radial-gradient(
-      circle at 90% 0%,
-      rgba(185, 138, 93, 0.08),
-      transparent 28%
-    ),
-    linear-gradient(
-      135deg,
-      var(--brown-deeper) 0%,
-      var(--brown-deep) 55%,
-      #382015 100%
-    );
-
-  color: var(--cream);
-
-  font-family: var(--font-poppins), sans-serif;
+  padding: 2.5rem clamp(1.25rem, 3vw, 3.5rem) 4rem;
 }
 
 /* =========================
@@ -36,9 +11,7 @@
 ========================= */
 
 .hero {
-  max-width: 1350px;
-
-  margin: 0 auto 2.5rem;
+  margin: 0 0 2.5rem;
 
   display: flex;
   align-items: flex-end;
@@ -172,13 +145,11 @@
 }
 
 /* =========================
-   STATISTICS
+   STATISTICS — mixed accent colours per card
 ========================= */
 
 .statsGrid {
-  max-width: 1350px;
-
-  margin: 0 auto 1.5rem;
+  margin: 0 0 1.5rem;
 
   display: grid;
 
@@ -220,7 +191,7 @@
   background: linear-gradient(
     145deg,
     rgba(111, 67, 37, 0.32),
-    rgba(43, 25, 16, 0.35)
+    rgba(21, 12, 7, 0.4)
   );
 }
 
@@ -254,11 +225,29 @@
 
   border-radius: 9px;
 
-  background: rgba(217, 174, 115, 0.08);
+  background: rgba(217, 174, 115, 0.1);
 
   color: var(--brown-gold);
 
   font-size: 0.75rem;
+}
+
+/* card 1 — gold (Total Members) */
+.statCard:nth-child(1) .statIcon {
+  background: rgba(217, 174, 115, 0.16);
+  color: var(--brown-gold);
+}
+
+/* card 2 — wine/berry (Administrators) */
+.statCard:nth-child(2) .statIcon {
+  background: rgba(122, 59, 59, 0.22);
+  color: #d99b9b;
+}
+
+/* card 3 — warm clay (Visitors) */
+.statCard:nth-child(3) .statIcon {
+  background: rgba(111, 67, 37, 0.28);
+  color: #d9b48f;
 }
 
 .statCard > strong {
@@ -288,10 +277,6 @@
 ========================= */
 
 .dashboardGrid {
-  max-width: 1350px;
-
-  margin: 0 auto;
-
   display: grid;
 
   grid-template-columns: minmax(0, 1fr) 310px;
@@ -432,6 +417,15 @@
   font-family: var(--font-playfair), serif;
 
   font-size: 0.9rem;
+}
+
+/* alternate avatar tint for visual variety, like a name-hash colour */
+.userRow:nth-child(3n + 2) .avatar {
+  background: linear-gradient(135deg, var(--brown-wine), var(--brown-deep));
+}
+
+.userRow:nth-child(3n) .avatar {
+  background: linear-gradient(135deg, var(--brown-gold), var(--brown-mid));
 }
 
 .userDetails {
@@ -600,8 +594,8 @@
 
   background: linear-gradient(
     145deg,
-    rgba(111, 67, 37, 0.24),
-    rgba(43, 25, 16, 0.5)
+    rgba(122, 59, 59, 0.2),
+    rgba(21, 12, 7, 0.55)
   );
 }
 
@@ -770,9 +764,7 @@
 ========================= */
 
 .bottomMessage {
-  max-width: 1350px;
-
-  margin: 2.5rem auto 0;
+  margin: 2.5rem 0 0;
 
   display: flex;
 
@@ -845,7 +837,7 @@
 
 @media (max-width: 700px) {
   .adminPage {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 3rem;
   }
 
   .hero {

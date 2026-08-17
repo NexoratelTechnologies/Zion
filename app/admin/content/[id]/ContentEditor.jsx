@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { updateSiteContent } from "../../../actions/content";
+import styles from "./ContentEditor.module.css";
 
 export default function ContentEditor({ content }) {
   const [value, setValue] = useState(content.value);
@@ -60,11 +61,11 @@ export default function ContentEditor({ content }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.editorForm}>
       {/* FEATURED SERMON */}
       {content.key === "home_featured_sermon" && (
         <>
-          <div>
+          <div className={styles.field}>
             <label>Topic</label>
             <input
               type="text"
@@ -73,7 +74,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Speaker</label>
             <input
               type="text"
@@ -82,16 +83,18 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Thumbnail</label>
             <input
               type="text"
               value={value.thumbnail ?? ""}
-              onChange={(event) => updateField("thumbnail", event.target.value)}
+              onChange={(event) =>
+                updateField("thumbnail", event.target.value)
+              }
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>YouTube Link</label>
             <input
               type="url"
@@ -106,7 +109,7 @@ export default function ContentEditor({ content }) {
 
       {/* CONTACT PHONE */}
       {content.key === "contact_phone" && (
-        <div>
+        <div className={styles.field}>
           <label>Phone</label>
           <input
             type="text"
@@ -119,7 +122,7 @@ export default function ContentEditor({ content }) {
       {/* MINISTRIES BLOCK */}
       {content.key === "home_ministries_block" && (
         <>
-          <div>
+          <div className={styles.field}>
             <label>Title</label>
             <input
               type="text"
@@ -128,7 +131,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Subtext</label>
             <input
               type="text"
@@ -137,7 +140,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Image</label>
             <input
               type="text"
@@ -146,7 +149,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Adult Label</label>
             <input
               type="text"
@@ -157,7 +160,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Youth Label</label>
             <input
               type="text"
@@ -168,7 +171,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Children Label</label>
             <input
               type="text"
@@ -179,7 +182,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Button Text</label>
             <input
               type="text"
@@ -190,7 +193,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Button Link</label>
             <input
               type="text"
@@ -206,7 +209,7 @@ export default function ContentEditor({ content }) {
       {/* PRAYER CAMP BLOCK */}
       {content.key === "home_prayer_camp_block" && (
         <>
-          <div>
+          <div className={styles.field}>
             <label>Title</label>
             <input
               type="text"
@@ -215,7 +218,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Subtext</label>
             <textarea
               value={value.subtext ?? ""}
@@ -223,7 +226,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Image</label>
             <input
               type="text"
@@ -232,7 +235,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Button Text</label>
             <input
               type="text"
@@ -243,7 +246,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Button Link</label>
             <input
               type="text"
@@ -259,13 +262,13 @@ export default function ContentEditor({ content }) {
       {/* FRIDAY/SUNDAY BOXES */}
       {content.key === "home_fundays_boxes" && (
         <>
-          <h2>Home Page Cards</h2>
+          <h2 className={styles.cardsHeading}>Home Page Cards</h2>
 
           {value.map((box, index) => (
-            <div key={index}>
+            <div key={index} className={styles.repeatCard}>
               <h3>Card {index + 1}</h3>
 
-              <div>
+              <div className={styles.field}>
                 <label>Text</label>
                 <textarea
                   value={box.text ?? ""}
@@ -275,7 +278,7 @@ export default function ContentEditor({ content }) {
                 />
               </div>
 
-              <div>
+              <div className={styles.field}>
                 <label>Image</label>
                 <input
                   type="text"
@@ -286,7 +289,7 @@ export default function ContentEditor({ content }) {
                 />
               </div>
 
-              <div>
+              <div className={styles.field}>
                 <label>Link</label>
                 <input
                   type="text"
@@ -297,21 +300,27 @@ export default function ContentEditor({ content }) {
                 />
               </div>
 
-              <button type="button" onClick={() => removeBox(index)}>
+              <button
+                type="button"
+                onClick={() => removeBox(index)}
+                className={styles.removeBtn}
+              >
                 Remove Card
               </button>
             </div>
           ))}
 
-          <button type="button" onClick={addBox}>
+          <button type="button" onClick={addBox} className={styles.addBtn}>
+            <i className="fa-solid fa-plus"></i>
             Add Card
           </button>
         </>
       )}
+
       {/* RECENT SERMON */}
       {content.key === "about_recent_sermon" && (
         <>
-          <div>
+          <div className={styles.field}>
             <label>Date</label>
             <input
               type="text"
@@ -320,7 +329,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>Title</label>
             <input
               type="text"
@@ -329,7 +338,7 @@ export default function ContentEditor({ content }) {
             />
           </div>
 
-          <div>
+          <div className={styles.field}>
             <label>YouTube Link</label>
             <input
               type="url"
@@ -341,11 +350,14 @@ export default function ContentEditor({ content }) {
           </div>
         </>
       )}
-      {error && <p>{error}</p>}
 
-      {success && <p>{success}</p>}
+      {error && <p className={styles.errorMsg}>{error}</p>}
 
-      <button type="submit">Save Changes</button>
+      {success && <p className={styles.successMsg}>{success}</p>}
+
+      <button type="submit" className={styles.submitBtn}>
+        Save Changes
+      </button>
     </form>
   );
 }

@@ -1,0 +1,236 @@
+.editorForm {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+
+  padding: 1.75rem;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  background: var(--surface);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* =========================
+   FIELD
+========================= */
+
+.field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.45rem;
+}
+
+.field label {
+  color: rgba(243, 230, 216, 0.55);
+
+  font-family: var(--font-roboto-condensed), sans-serif;
+
+  font-size: 0.65rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea {
+  padding: 0.7rem 0.85rem;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: rgba(29, 16, 10, 0.4);
+
+  color: var(--cream);
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 0.82rem;
+
+  outline: none;
+
+  transition: border-color 0.2s ease;
+}
+
+.field textarea {
+  min-height: 90px;
+
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--brown-gold);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(243, 230, 216, 0.25);
+}
+
+/* =========================
+   REPEATABLE CARDS (e.g. home_fundays_boxes)
+========================= */
+
+.cardsHeading {
+  margin: 0;
+
+  font-family: var(--font-playfair), serif;
+
+  font-size: 1.1rem;
+
+  font-weight: 600;
+
+  color: var(--cream);
+}
+
+.repeatCard {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  padding: 1.1rem;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.repeatCard h3 {
+  margin: 0;
+
+  color: var(--brown-gold);
+
+  font-family: var(--font-roboto-condensed), sans-serif;
+
+  font-size: 0.68rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.removeBtn {
+  align-self: flex-start;
+
+  padding: 0.45rem 0.85rem;
+
+  border: 1px solid rgba(224, 138, 125, 0.35);
+  border-radius: 20px;
+
+  background: rgba(224, 138, 125, 0.1);
+
+  color: #e08a7d;
+
+  font-family: var(--font-roboto-condensed), sans-serif;
+
+  font-size: 0.62rem;
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.removeBtn:hover {
+  background: rgba(224, 138, 125, 0.18);
+}
+
+.addBtn {
+  align-self: flex-start;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+
+  padding: 0.55rem 1rem;
+
+  border: 1px dashed rgba(217, 174, 115, 0.35);
+  border-radius: 20px;
+
+  background: transparent;
+
+  color: var(--brown-gold);
+
+  font-family: var(--font-roboto-condensed), sans-serif;
+
+  font-size: 0.68rem;
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.addBtn:hover {
+  background: rgba(217, 174, 115, 0.08);
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
+.errorMsg {
+  margin: 0;
+
+  color: #e08a7d;
+
+  font-size: 0.75rem;
+}
+
+.successMsg {
+  margin: 0;
+
+  color: #9fc793;
+
+  font-size: 0.75rem;
+}
+
+/* =========================
+   SUBMIT
+========================= */
+
+.submitBtn {
+  align-self: flex-start;
+
+  padding: 0.75rem 1.5rem;
+
+  border: 1px solid rgba(217, 174, 115, 0.3);
+  border-radius: 22px;
+
+  background: rgba(217, 174, 115, 0.14);
+
+  color: var(--brown-gold);
+
+  font-family: var(--font-roboto-condensed), sans-serif;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  letter-spacing: 0.05em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.submitBtn:hover {
+  background: rgba(217, 174, 115, 0.22);
+
+  transform: translateY(-1px);
+}
