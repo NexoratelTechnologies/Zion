@@ -17,8 +17,11 @@ export default function Navbar({ transparent = false }) {
 
   const pathname = usePathname();
 
-  const { data: session, status } = useSession();
+  const { data: session, status, update } = useSession();
 
+  useEffect(() => {
+    update();
+  }, [pathname, update]);
   const navLinks = [
     { href: "/", label: "HOME" },
     { href: "/about", label: "ABOUT" },
