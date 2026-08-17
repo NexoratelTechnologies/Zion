@@ -15,15 +15,13 @@ export default function Login() {
           </div>
 
           <div className={styles.secondsignsec}>
-            <div className="zionlogo">
-              <Image
-                src="/ZionLogo1-removebg-preview-cropped.png"
-                alt=""
-                width={200}
-                height={200}
-                className={styles.zionlogoitself}
-              />
-            </div>
+            <Image
+              src="/ZionLogo1-removebg-preview-cropped.png"
+              alt=""
+              width={200}
+              height={200}
+              className={styles.zionlogoitself}
+            />
 
             <div className={styles.welcomemessage1}>
               <h1>Welcome Back</h1>

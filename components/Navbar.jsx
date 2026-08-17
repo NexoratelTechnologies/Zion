@@ -246,7 +246,7 @@ export default function Navbar({ transparent = false }) {
 
                   {/* PROFILE */}
 
-                  <Link href="/dashboard/profile" onClick={closeMenus}>
+                  <Link href="/profile" onClick={closeMenus}>
                     <i className="fa-solid fa-user"></i>
                     <span>Profile</span>
                   </Link>

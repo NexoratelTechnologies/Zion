@@ -1,9 +1,9 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
-import SignupForm from "./SignupForm";
+import LoginForm from "./LoginForm";
 
-export default function Signup() {
+export default function Login() {
   return (
     <>
       <main>
@@ -13,23 +13,25 @@ export default function Signup() {
               Zion Chapel
             </Link>
           </div>
+
           <div className={styles.secondsignsec}>
-            <div className="zionlogo">
-              <Image
-                src="/ZionLogo1-removebg-preview-cropped.png"
-                alt=""
-                width={200}
-                height={200}
-                className={styles.zionlogoitself}
-              />
-            </div>
+            <Image
+              src="/ZionLogo1-removebg-preview-cropped.png"
+              alt=""
+              width={200}
+              height={200}
+              className={styles.zionlogoitself}
+            />
+
             <div className={styles.welcomemessage1}>
-              <h1>Welcome to Zion</h1>
-              <p>Create an account and begin ur path to Zion</p>
+              <h1>Welcome Back</h1>
+              <p>Sign In to Continue Your Walk With God</p>
             </div>
+
             <div className={styles.signupform}>
-              <SignupForm />
+              <LoginForm />
             </div>
+
             <div className={styles.termsblock}>
               <p>
                 By Continuiung you agree to our{" "}
@@ -41,19 +43,22 @@ export default function Signup() {
                   Privacy Policy
                 </Link>
               </p>
+
               <p>
-                Already have an Account?{" "}
-                <Link href="/login" className={styles.signinlink}>
-                  Sign In
+                Dont have an Account?{" "}
+                <Link href="/signup" className={styles.signinlink}>
+                  Sign Up
                 </Link>
               </p>
             </div>
           </div>
+
           <div className={styles.thirdsignsec}>
             <Image
               src="/neatdreassedyoth1.jpg"
               alt=""
               fill
+              sizes="(max-width: 768px) 100vw, 400px"
               className={styles.thirdsecimage}
             />
           </div>

@@ -11,10 +11,14 @@ export default function DashboardLayout({ children }) {
 
         <nav className={styles.nav}>
           <Link href="/dashboard">Dashboard</Link>
-          <Link href="/dashboard/sermons">Sermons</Link>
-          <Link href="/dashboard/events">Events</Link>
-          <Link href="/dashboard/prayer">Prayer</Link>
-          <Link href="/dashboard/profile">Profile</Link>
+          <Link href="/profile">Profile</Link>
+          {/*
+            TODO: build these pages before re-enabling these links —
+            they currently point nowhere.
+            <Link href="/dashboard/sermons">Sermons</Link>
+            <Link href="/dashboard/events">Events</Link>
+            <Link href="/dashboard/prayer">Prayer</Link>
+          */}
         </nav>
 
         <div className={styles.bottomNav}>

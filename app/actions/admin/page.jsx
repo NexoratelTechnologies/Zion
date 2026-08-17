@@ -9,19 +9,16 @@ export default async function AdminPage() {
   const [totalUsers, totalAdmins, totalVisitors, recentUsers] =
     await Promise.all([
       prisma.user.count(),
-
       prisma.user.count({
         where: {
           role: "ADMIN",
         },
       }),
-
       prisma.user.count({
         where: {
           role: "VISITOR",
         },
       }),
-
       prisma.user.findMany({
         orderBy: {
           createdAt: "desc",
@@ -30,14 +27,9 @@ export default async function AdminPage() {
       }),
     ]);
 
-  const firstName = session.user.name?.split(" ")[0] || "Admin";
-
   return (
     <main className={styles.adminPage}>
-      {/* =========================
-          HEADER
-      ========================= */}
-
+      {/* TOP HEADER */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <div className={styles.eyebrow}>
@@ -46,12 +38,13 @@ export default async function AdminPage() {
           </div>
 
           <h1>
-            Welcome back, <span>{firstName}.</span>
+            Welcome back,{" "}
+            <span>{session.user.name?.split(" ")[0] || "Admin"}.</span>
           </h1>
 
           <p>
-            Manage your Zion community, monitor members, and keep the website up
-            to date from one place.
+            Manage your Zion community, monitor members, and keep everything
+            running smoothly from one place.
           </p>
         </div>
 
@@ -67,10 +60,7 @@ export default async function AdminPage() {
         </div>
       </section>
 
-      {/* =========================
-          STATISTICS
-      ========================= */}
-
+      {/* STATISTICS */}
       <section className={styles.statsGrid}>
         <div className={`${styles.statCard} ${styles.primaryStat}`}>
           <div className={styles.statTop}>
@@ -84,6 +74,8 @@ export default async function AdminPage() {
           <strong>{totalUsers}</strong>
 
           <p>Registered Zion accounts</p>
+
+          <div className={styles.statAccent}></div>
         </div>
 
         <div className={styles.statCard}>
@@ -98,6 +90,8 @@ export default async function AdminPage() {
           <strong>{totalAdmins}</strong>
 
           <p>Users with admin access</p>
+
+          <div className={styles.statAccent}></div>
         </div>
 
         <div className={styles.statCard}>
@@ -112,22 +106,18 @@ export default async function AdminPage() {
           <strong>{totalVisitors}</strong>
 
           <p>Community member accounts</p>
+
+          <div className={styles.statAccent}></div>
         </div>
       </section>
 
-      {/* =========================
-          MAIN CONTENT
-      ========================= */}
-
+      {/* MAIN CONTENT */}
       <section className={styles.dashboardGrid}>
-        {/* =========================
-            RECENT USERS
-        ========================= */}
-
-        <section className={styles.usersPanel}>
+        {/* RECENT USERS */}
+        <div className={styles.usersPanel}>
           <div className={styles.panelHeader}>
             <div>
-              <span className={styles.panelEyebrow}>COMMUNITY</span>
+              <div className={styles.panelEyebrow}>COMMUNITY</div>
 
               <h2>Recent Members</h2>
 
@@ -159,7 +149,7 @@ export default async function AdminPage() {
                       {user.name?.charAt(0)?.toUpperCase() || "Z"}
                     </div>
 
-                    <div className={styles.userDetails}>
+                    <div>
                       <strong>{user.name || "Zion Member"}</strong>
                       <span>{user.email}</span>
                     </div>
@@ -200,13 +190,12 @@ export default async function AdminPage() {
               ))
             )}
           </div>
-        </section>
+        </div>
 
-        {/* =========================
-            ADMIN TOOLS
-        ========================= */}
-
+        {/* MANAGEMENT */}
         <aside className={styles.managementPanel}>
+          <div className={styles.managementOrb}></div>
+
           <div className={styles.managementContent}>
             <div className={styles.managementIcon}>
               <i className="fa-solid fa-sliders"></i>
@@ -217,29 +206,14 @@ export default async function AdminPage() {
             <h2>Manage Zion</h2>
 
             <p>
-              Manage members and update the content displayed across the Zion
-              website.
+              Review members, update account roles, and manage the people who
+              are part of the Zion community.
             </p>
 
-            <div className={styles.managementLinks}>
-              <Link href="/admin/users" className={styles.managementButton}>
-                <span>
-                  <i className="fa-solid fa-users"></i>
-                  Manage Users
-                </span>
-
-                <i className="fa-solid fa-arrow-right"></i>
-              </Link>
-
-              <Link href="/admin/content" className={styles.managementButton}>
-                <span>
-                  <i className="fa-solid fa-pen-to-square"></i>
-                  Update Site Content
-                </span>
-
-                <i className="fa-solid fa-arrow-right"></i>
-              </Link>
-            </div>
+            <Link href="/admin/users" className={styles.managementButton}>
+              Manage Users
+              <i className="fa-solid fa-arrow-right"></i>
+            </Link>
           </div>
 
           <div className={styles.managementFooter}>
@@ -249,12 +223,9 @@ export default async function AdminPage() {
         </aside>
       </section>
 
-      {/* =========================
-          FOOTER MESSAGE
-      ========================= */}
-
+      {/* FOOTER MESSAGE */}
       <section className={styles.bottomMessage}>
-        <span className={styles.bottomLine}></span>
+        <div className={styles.bottomLine}></div>
 
         <p>
           <span>LOVE</span>
@@ -266,7 +237,7 @@ export default async function AdminPage() {
           <span>SERVICE</span>
         </p>
 
-        <span className={styles.bottomLine}></span>
+        <div className={styles.bottomLine}></div>
       </section>
     </main>
   );
