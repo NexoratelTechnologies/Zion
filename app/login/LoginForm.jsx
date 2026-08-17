@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import styles from "./page.module.css";
 import { login } from "../actions/auth";
@@ -17,6 +17,15 @@ function SubmitButton() {
 
 export default function LoginForm() {
   const [state, formAction] = useActionState(login, null);
+
+  useEffect(() => {
+    if (state?.success) {
+      // Full page reload (not router.push) so SessionProvider remounts
+      // and fetches the real session — avoids stale/mismatched user data
+      // showing in the Navbar after login.
+      window.location.href = "/dashboard";
+    }
+  }, [state]);
 
   return (
     <form action={formAction} className={styles.form}>

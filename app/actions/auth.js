@@ -60,7 +60,7 @@ export async function login(previousState, formData) {
     await signIn("credentials", {
       email,
       password,
-      redirectTo: "/dashboard",
+      redirect: false,
     });
   } catch (error) {
     if (error?.type === "CredentialsSignin") {
@@ -69,6 +69,8 @@ export async function login(previousState, formData) {
 
     throw error;
   }
+
+  return { success: true };
 }
 
 export async function updateUserRole(previousState, formData) {
