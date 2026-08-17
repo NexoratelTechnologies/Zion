@@ -10,6 +10,7 @@ import {
   Alex_Brush,
   Give_You_Glory,
 } from "next/font/google";
+import AuthProvider from "@/components/AuthProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -74,7 +75,7 @@ export default function RootLayout({ children }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         />
 
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
+import LoginForm from "./LoginForm";
 
 export default function Login() {
   return (
@@ -12,6 +13,7 @@ export default function Login() {
               Zion Chapel
             </Link>
           </div>
+
           <div className={styles.secondsignsec}>
             <div className="zionlogo">
               <Image
@@ -22,26 +24,16 @@ export default function Login() {
                 className={styles.zionlogoitself}
               />
             </div>
+
             <div className={styles.welcomemessage1}>
               <h1>Welcome Back</h1>
               <p>Sign In to Continue Your Walk With God</p>
             </div>
+
             <div className={styles.signupform}>
-              <form action="" className={styles.form}>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Enter your email"
-                />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Enter your password"
-                />
-                <button>Continue</button>
-              </form>
+              <LoginForm />
             </div>
+
             <div className={styles.termsblock}>
               <p>
                 By Continuiung you agree to our{" "}
@@ -53,6 +45,7 @@ export default function Login() {
                   Privacy Policy
                 </Link>
               </p>
+
               <p>
                 Dont have an Account?{" "}
                 <Link href="/signup" className={styles.signinlink}>
@@ -61,6 +54,7 @@ export default function Login() {
               </p>
             </div>
           </div>
+
           <div className={styles.thirdsignsec}>
             <Image
               src="/neatdreassedyoth1.jpg"

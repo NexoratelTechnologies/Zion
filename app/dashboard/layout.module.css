@@ -1,0 +1,143 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: #fbf6f0;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: #2b1f17;
+  color: #f3e6d8;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.logo {
+  margin-bottom: 3rem;
+}
+
+.logo a {
+  font-family: var(--font-give-you-glory), cursive;
+  font-size: 1.8rem;
+  color: #f3e6d8;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.nav a {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #cbb9a6;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.nav a:hover {
+  background-color: rgba(217, 180, 143, 0.1);
+  color: #f3e6d8;
+}
+
+.bottomNav {
+  padding-top: 1.5rem;
+}
+
+.bottomNav a {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.85rem;
+  color: #a58b6f;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.bottomNav a:hover {
+  color: #d9b48f;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.content {
+  flex: 1;
+  padding: 3rem 3rem 5rem;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+  }
+
+  .logo {
+    margin-bottom: 0;
+  }
+
+  .nav {
+    flex-direction: row;
+    gap: 0.25rem;
+  }
+
+  .nav a {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.82rem;
+  }
+
+  .bottomNav {
+    padding-top: 0;
+  }
+
+  .content {
+    padding: 2rem 1.5rem 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    order: 3;
+  }
+}

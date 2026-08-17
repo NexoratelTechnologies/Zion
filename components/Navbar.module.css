@@ -265,6 +265,9 @@
   background: linear-gradient(135deg, var(--brown-mid), var(--brown-deep));
   border-radius: 50%;
   overflow: hidden;
+  appearance: none;
+  padding: 0;
+  cursor: pointer;
   display: block;
   border: 2px solid rgba(217, 180, 143, 0.5);
   box-shadow: 0 4px 12px rgba(62, 35, 23, 0.4);
@@ -444,4 +447,232 @@
     font-size: 0.75rem;
     text-align: center;
   }
+}
+
+/* =========================
+   PROFILE DROPDOWN
+========================= */
+
+.profilewrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profilebubble {
+  cursor: pointer;
+  padding: 0;
+  appearance: none;
+}
+
+.profiledropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+
+  width: 250px;
+
+  background: rgba(43, 25, 16, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(217, 180, 143, 0.25);
+  border-radius: 14px;
+
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.5);
+
+  padding: 0.65rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-8px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+
+  z-index: 50;
+}
+
+.profiledropdown::before {
+  content: "";
+
+  position: absolute;
+
+  top: -6px;
+  right: 17px;
+
+  width: 12px;
+  height: 12px;
+
+  background: rgba(43, 25, 16, 0.98);
+
+  border-left: 1px solid rgba(217, 180, 143, 0.25);
+  border-top: 1px solid rgba(217, 180, 143, 0.25);
+
+  transform: rotate(45deg);
+}
+
+.profiledropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* PROFILE HEADER */
+
+.profileheader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding: 0.7rem;
+}
+
+.profiledropdownicon {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(217, 180, 143, 0.4);
+}
+
+.profiledropdownicon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileheader strong {
+  display: block;
+
+  color: var(--cream);
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 0.88rem;
+
+  margin-bottom: 2px;
+}
+
+.profileheader span {
+  display: block;
+
+  color: var(--brown-light);
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 0.7rem;
+
+  max-width: 160px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* DIVIDER */
+
+.profiledivider {
+  height: 1px;
+
+  background: rgba(217, 180, 143, 0.15);
+
+  margin: 0.4rem 0;
+}
+
+/* DROPDOWN LINKS */
+
+.profiledropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  padding: 0.7rem 0.8rem;
+
+  border-radius: 8px;
+
+  color: var(--cream);
+
+  text-decoration: none;
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 0.85rem;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.profiledropdown > a:hover {
+  background: rgba(217, 180, 143, 0.13);
+
+  color: var(--brown-gold);
+}
+
+.profiledropdown > a i {
+  width: 18px;
+
+  text-align: center;
+
+  color: var(--brown-light);
+}
+
+/* LOGOUT */
+
+.profiledropdown form {
+  margin: 0;
+}
+
+.logoutbutton {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.7rem;
+
+  padding: 0.7rem 0.8rem;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: var(--cream);
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 0.85rem;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.logoutbutton:hover {
+  background: rgba(217, 180, 143, 0.13);
+
+  color: var(--brown-gold);
+}
+
+.logoutbutton i {
+  width: 18px;
+
+  text-align: center;
+
+  color: var(--brown-light);
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
+import SignupForm from "./SignupForm";
 
 export default function Signup() {
   return (
@@ -27,26 +28,7 @@ export default function Signup() {
               <p>Create an account and begin ur path to Zion</p>
             </div>
             <div className={styles.signupform}>
-              <form action="" className={styles.form}>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Enter Your name"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Enter your email"
-                />
-                <input
-                  type="text"
-                  name="password"
-                  placeholder="Enter your password"
-                />
-                <button>Continue</button>
-              </form>
+              <SignupForm />
             </div>
             <div className={styles.termsblock}>
               <p>

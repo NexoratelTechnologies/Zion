@@ -9,7 +9,12 @@
 .firstsignsec {
   width: 200px;
 }
-
+.formerror {
+  color: #dc2626;
+  font-size: 14px;
+  margin: 8px 0;
+  text-align: center;
+}
 .zionchapellink {
   display: inline-block;
   font-size: 1.7rem;
