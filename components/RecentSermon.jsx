@@ -1,6 +1,14 @@
 import styles from "./RecentSermon.module.css";
+import Link from "next/link";
+import { prisma } from "@/lib/prisma";
 
-export default function RecentSermon() {
+export default async function RecentSermon() {
+  const recentSermonContent = await prisma.siteContent.findUnique({
+    where: { key: "about_recent_sermon" },
+  });
+
+  const actualrecserValue = recentSermonContent.value;
+
   return (
     <section className={styles.overalldiveforcomp}>
       <div className={styles.headingfrorecentsermon}>
@@ -8,10 +16,12 @@ export default function RecentSermon() {
         <p>Pastors Sermon</p>{" "}
       </div>
       <div className={styles.recentdivinnerbox}>
-        <p className={styles.sermondate}>12 AUG, 26</p>
-        <p className={styles.sermontitle}>How to be One with the Word</p>
+        <p className={styles.sermondate}>{actualrecserValue.date}</p>
+        <p className={styles.sermontitle}>{actualrecserValue.title}</p>
         <p className={styles.watconyoutube}>
-          <i className="fa-solid fa-play"></i>Wacth on Youtube
+          <Link href={actualrecserValue.youtubeLink}>
+            <i className="fa-solid fa-play"></i>Wacth on Youtube
+          </Link>
         </p>
       </div>
     </section>
