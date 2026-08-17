@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import { updateSiteContent } from "../../../actions/content";
-import styles from "./ContentEditor.module.css";
 
 export default function ContentEditor({ content }) {
   const [value, setValue] = useState(content.value);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [saving, setSaving] = useState(false);
 
   function updateField(field, newValue) {
     setValue((current) => ({
@@ -50,298 +48,304 @@ export default function ContentEditor({ content }) {
 
     setError("");
     setSuccess("");
-    setSaving(true);
 
-    try {
-      const result = await updateSiteContent(content.id, value);
+    const result = await updateSiteContent(content.id, value);
 
-      if (result?.error) {
-        setError(result.error);
-        return;
-      }
-
-      setSuccess("Content updated successfully.");
-    } catch {
-      setError("Something went wrong while saving your changes.");
-    } finally {
-      setSaving(false);
+    if (result?.error) {
+      setError(result.error);
+      return;
     }
+
+    setSuccess("Content updated successfully.");
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       {/* FEATURED SERMON */}
       {content.key === "home_featured_sermon" && (
-        <div className={styles.fields}>
-          <Field
-            label="Topic"
-            value={value.topic}
-            onChange={(newValue) => updateField("topic", newValue)}
-          />
+        <>
+          <div>
+            <label>Topic</label>
+            <input
+              type="text"
+              value={value.topic ?? ""}
+              onChange={(event) => updateField("topic", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="Speaker"
-            value={value.speaker}
-            onChange={(newValue) => updateField("speaker", newValue)}
-          />
+          <div>
+            <label>Speaker</label>
+            <input
+              type="text"
+              value={value.speaker ?? ""}
+              onChange={(event) => updateField("speaker", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="Thumbnail"
-            value={value.thumbnail}
-            onChange={(newValue) => updateField("thumbnail", newValue)}
-          />
+          <div>
+            <label>Thumbnail</label>
+            <input
+              type="text"
+              value={value.thumbnail ?? ""}
+              onChange={(event) => updateField("thumbnail", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="YouTube Link"
-            type="url"
-            value={value.youtubeLink}
-            onChange={(newValue) => updateField("youtubeLink", newValue)}
-          />
-        </div>
+          <div>
+            <label>YouTube Link</label>
+            <input
+              type="url"
+              value={value.youtubeLink ?? ""}
+              onChange={(event) =>
+                updateField("youtubeLink", event.target.value)
+              }
+            />
+          </div>
+        </>
       )}
 
       {/* CONTACT PHONE */}
       {content.key === "contact_phone" && (
-        <div className={styles.fields}>
-          <Field
-            label="Phone"
-            value={value.phone}
-            onChange={(newValue) => updateField("phone", newValue)}
+        <div>
+          <label>Phone</label>
+          <input
+            type="text"
+            value={value.phone ?? ""}
+            onChange={(event) => updateField("phone", event.target.value)}
           />
         </div>
       )}
 
-      {/* MINISTRIES */}
+      {/* MINISTRIES BLOCK */}
       {content.key === "home_ministries_block" && (
-        <div className={styles.fields}>
-          <Field
-            label="Title"
-            value={value.title}
-            onChange={(newValue) => updateField("title", newValue)}
-          />
+        <>
+          <div>
+            <label>Title</label>
+            <input
+              type="text"
+              value={value.title ?? ""}
+              onChange={(event) => updateField("title", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="Subtext"
-            value={value.subtext}
-            onChange={(newValue) => updateField("subtext", newValue)}
-          />
+          <div>
+            <label>Subtext</label>
+            <input
+              type="text"
+              value={value.subtext ?? ""}
+              onChange={(event) => updateField("subtext", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="Image"
-            value={value.image}
-            onChange={(newValue) => updateField("image", newValue)}
-          />
+          <div>
+            <label>Image</label>
+            <input
+              type="text"
+              value={value.image ?? ""}
+              onChange={(event) => updateField("image", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="Adult Label"
-            value={value.adultLabel}
-            onChange={(newValue) => updateField("adultLabel", newValue)}
-          />
+          <div>
+            <label>Adult Label</label>
+            <input
+              type="text"
+              value={value.adultLabel ?? ""}
+              onChange={(event) =>
+                updateField("adultLabel", event.target.value)
+              }
+            />
+          </div>
 
-          <Field
-            label="Youth Label"
-            value={value.youthLabel}
-            onChange={(newValue) => updateField("youthLabel", newValue)}
-          />
+          <div>
+            <label>Youth Label</label>
+            <input
+              type="text"
+              value={value.youthLabel ?? ""}
+              onChange={(event) =>
+                updateField("youthLabel", event.target.value)
+              }
+            />
+          </div>
 
-          <Field
-            label="Children Label"
-            value={value.childrenLabel}
-            onChange={(newValue) => updateField("childrenLabel", newValue)}
-          />
+          <div>
+            <label>Children Label</label>
+            <input
+              type="text"
+              value={value.childrenLabel ?? ""}
+              onChange={(event) =>
+                updateField("childrenLabel", event.target.value)
+              }
+            />
+          </div>
 
-          <Field
-            label="Button Text"
-            value={value.buttonText}
-            onChange={(newValue) => updateField("buttonText", newValue)}
-          />
+          <div>
+            <label>Button Text</label>
+            <input
+              type="text"
+              value={value.buttonText ?? ""}
+              onChange={(event) =>
+                updateField("buttonText", event.target.value)
+              }
+            />
+          </div>
 
-          <Field
-            label="Button Link"
-            value={value.buttonLink}
-            onChange={(newValue) => updateField("buttonLink", newValue)}
-          />
-        </div>
+          <div>
+            <label>Button Link</label>
+            <input
+              type="text"
+              value={value.buttonLink ?? ""}
+              onChange={(event) =>
+                updateField("buttonLink", event.target.value)
+              }
+            />
+          </div>
+        </>
       )}
 
-      {/* PRAYER CAMP */}
+      {/* PRAYER CAMP BLOCK */}
       {content.key === "home_prayer_camp_block" && (
-        <div className={styles.fields}>
-          <Field
-            label="Title"
-            value={value.title}
-            onChange={(newValue) => updateField("title", newValue)}
-          />
+        <>
+          <div>
+            <label>Title</label>
+            <input
+              type="text"
+              value={value.title ?? ""}
+              onChange={(event) => updateField("title", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="Subtext"
-            textarea
-            value={value.subtext}
-            onChange={(newValue) => updateField("subtext", newValue)}
-          />
+          <div>
+            <label>Subtext</label>
+            <textarea
+              value={value.subtext ?? ""}
+              onChange={(event) => updateField("subtext", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="Image"
-            value={value.image}
-            onChange={(newValue) => updateField("image", newValue)}
-          />
+          <div>
+            <label>Image</label>
+            <input
+              type="text"
+              value={value.image ?? ""}
+              onChange={(event) => updateField("image", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="Button Text"
-            value={value.buttonText}
-            onChange={(newValue) => updateField("buttonText", newValue)}
-          />
+          <div>
+            <label>Button Text</label>
+            <input
+              type="text"
+              value={value.buttonText ?? ""}
+              onChange={(event) =>
+                updateField("buttonText", event.target.value)
+              }
+            />
+          </div>
 
-          <Field
-            label="Button Link"
-            value={value.buttonLink}
-            onChange={(newValue) => updateField("buttonLink", newValue)}
-          />
-        </div>
+          <div>
+            <label>Button Link</label>
+            <input
+              type="text"
+              value={value.buttonLink ?? ""}
+              onChange={(event) =>
+                updateField("buttonLink", event.target.value)
+              }
+            />
+          </div>
+        </>
       )}
 
-      {/* FRIDAY / SUNDAY BOXES */}
+      {/* FRIDAY/SUNDAY BOXES */}
       {content.key === "home_fundays_boxes" && (
-        <div className={styles.boxSection}>
-          <div className={styles.boxSectionHeader}>
-            <div>
-              <span>HOMEPAGE CARDS</span>
-              <h3>Content Cards</h3>
-            </div>
+        <>
+          <h2>Home Page Cards</h2>
 
-            <button type="button" className={styles.addButton} onClick={addBox}>
-              <i className="fa-solid fa-plus"></i>
-              Add Card
-            </button>
-          </div>
+          {value.map((box, index) => (
+            <div key={index}>
+              <h3>Card {index + 1}</h3>
 
-          <div className={styles.cards}>
-            {value.map((box, index) => (
-              <div className={styles.contentBox} key={index}>
-                <div className={styles.contentBoxHeader}>
-                  <div>
-                    <span>CARD {String(index + 1).padStart(2, "0")}</span>
-                    <h4>Homepage Card</h4>
-                  </div>
-
-                  <button
-                    type="button"
-                    className={styles.removeButton}
-                    onClick={() => removeBox(index)}
-                  >
-                    <i className="fa-solid fa-trash"></i>
-                    Remove
-                  </button>
-                </div>
-
-                <div className={styles.fields}>
-                  <Field
-                    label="Text"
-                    textarea
-                    value={box.text}
-                    onChange={(newValue) => updateBox(index, "text", newValue)}
-                  />
-
-                  <Field
-                    label="Image"
-                    value={box.image}
-                    onChange={(newValue) => updateBox(index, "image", newValue)}
-                  />
-
-                  <Field
-                    label="Link"
-                    value={box.link}
-                    onChange={(newValue) => updateBox(index, "link", newValue)}
-                  />
-                </div>
+              <div>
+                <label>Text</label>
+                <textarea
+                  value={box.text ?? ""}
+                  onChange={(event) =>
+                    updateBox(index, "text", event.target.value)
+                  }
+                />
               </div>
-            ))}
-          </div>
-        </div>
-      )}
 
+              <div>
+                <label>Image</label>
+                <input
+                  type="text"
+                  value={box.image ?? ""}
+                  onChange={(event) =>
+                    updateBox(index, "image", event.target.value)
+                  }
+                />
+              </div>
+
+              <div>
+                <label>Link</label>
+                <input
+                  type="text"
+                  value={box.link ?? ""}
+                  onChange={(event) =>
+                    updateBox(index, "link", event.target.value)
+                  }
+                />
+              </div>
+
+              <button type="button" onClick={() => removeBox(index)}>
+                Remove Card
+              </button>
+            </div>
+          ))}
+
+          <button type="button" onClick={addBox}>
+            Add Card
+          </button>
+        </>
+      )}
       {/* RECENT SERMON */}
       {content.key === "about_recent_sermon" && (
-        <div className={styles.fields}>
-          <Field
-            label="Date"
-            value={value.date}
-            onChange={(newValue) => updateField("date", newValue)}
-          />
+        <>
+          <div>
+            <label>Date</label>
+            <input
+              type="text"
+              value={value.date ?? ""}
+              onChange={(event) => updateField("date", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="Title"
-            value={value.title}
-            onChange={(newValue) => updateField("title", newValue)}
-          />
+          <div>
+            <label>Title</label>
+            <input
+              type="text"
+              value={value.title ?? ""}
+              onChange={(event) => updateField("title", event.target.value)}
+            />
+          </div>
 
-          <Field
-            label="YouTube Link"
-            type="url"
-            value={value.youtubeLink}
-            onChange={(newValue) => updateField("youtubeLink", newValue)}
-          />
-        </div>
+          <div>
+            <label>YouTube Link</label>
+            <input
+              type="url"
+              value={value.youtubeLink ?? ""}
+              onChange={(event) =>
+                updateField("youtubeLink", event.target.value)
+              }
+            />
+          </div>
+        </>
       )}
+      {error && <p>{error}</p>}
 
-      {/* STATUS */}
-      {error && (
-        <div className={`${styles.message} ${styles.error}`}>
-          <i className="fa-solid fa-circle-exclamation"></i>
-          {error}
-        </div>
-      )}
+      {success && <p>{success}</p>}
 
-      {success && (
-        <div className={`${styles.message} ${styles.success}`}>
-          <i className="fa-solid fa-circle-check"></i>
-          {success}
-        </div>
-      )}
-
-      {/* SAVE */}
-      <div className={styles.formFooter}>
-        <span>
-          <i className="fa-solid fa-lock"></i>
-          Administrator access
-        </span>
-
-        <button type="submit" className={styles.saveButton} disabled={saving}>
-          {saving ? (
-            <>
-              <i className="fa-solid fa-spinner fa-spin"></i>
-              Saving...
-            </>
-          ) : (
-            <>
-              Save Changes
-              <i className="fa-solid fa-arrow-right"></i>
-            </>
-          )}
-        </button>
-      </div>
+      <button type="submit">Save Changes</button>
     </form>
-  );
-}
-
-function Field({ label, value, onChange, type = "text", textarea = false }) {
-  return (
-    <div className={styles.field}>
-      <label>{label}</label>
-
-      {textarea ? (
-        <textarea
-          value={value ?? ""}
-          onChange={(event) => onChange(event.target.value)}
-          rows={4}
-        />
-      ) : (
-        <input
-          type={type}
-          value={value ?? ""}
-          onChange={(event) => onChange(event.target.value)}
-        />
-      )}
-    </div>
   );
 }
