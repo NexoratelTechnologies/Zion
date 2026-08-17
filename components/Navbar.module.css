@@ -676,3 +676,377 @@
 
   color: var(--brown-light);
 }
+
+/* =========================
+   PROFILE DROPDOWN
+========================= */
+
+.profilewrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profilebubble {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--brown-mid), var(--brown-deep));
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+  border: 2px solid rgba(217, 180, 143, 0.5);
+  box-shadow: 0 4px 12px rgba(62, 35, 23, 0.4);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  padding: 0;
+  cursor: pointer;
+}
+
+.profilebubble:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(62, 35, 23, 0.5);
+}
+
+.profilebubble img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   PROFILE DROPDOWN BOX
+========================= */
+
+.profiledropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+
+  width: 270px;
+
+  background: rgba(43, 25, 16, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(217, 180, 143, 0.25);
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35),
+    0 5px 15px rgba(0, 0, 0, 0.15);
+
+  padding: 0.65rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-8px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+
+  z-index: 50;
+}
+
+/* Little arrow */
+
+.profiledropdown::before {
+  content: "";
+
+  position: absolute;
+
+  top: -6px;
+  right: 15px;
+
+  width: 12px;
+  height: 12px;
+
+  background: rgba(43, 25, 16, 0.98);
+
+  border-left: 1px solid rgba(217, 180, 143, 0.25);
+  border-top: 1px solid rgba(217, 180, 143, 0.25);
+
+  transform: rotate(45deg);
+}
+
+/* Open state */
+
+.profiledropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* =========================
+   PROFILE HEADER
+========================= */
+
+.profileheader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding: 0.65rem 0.55rem 0.8rem;
+}
+
+.profileheaderimage {
+  width: 45px;
+  height: 45px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  border: 1px solid rgba(217, 180, 143, 0.4);
+}
+
+.profileheaderimage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileuserinfo {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.15rem;
+}
+
+.profileuserinfo strong {
+  color: var(--cream);
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 0.88rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profileuserinfo span {
+  color: var(--brown-light);
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 0.72rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.profiledivider {
+  height: 1px;
+
+  background: rgba(217, 180, 143, 0.15);
+
+  margin: 0.35rem 0;
+}
+
+/* =========================
+   PROFILE LINKS
+========================= */
+
+.profiledropdown a {
+  display: flex;
+  align-items: center;
+
+  gap: 0.75rem;
+
+  width: 100%;
+
+  padding: 0.7rem 0.75rem;
+
+  border-radius: 9px;
+
+  color: var(--cream);
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 0.84rem;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.profiledropdown a:hover {
+  background: rgba(217, 180, 143, 0.12);
+
+  color: var(--brown-gold);
+}
+
+.profiledropdown a i {
+  width: 18px;
+
+  text-align: center;
+
+  color: var(--brown-light);
+
+  font-size: 0.85rem;
+}
+
+.profiledropdown a:hover i {
+  color: var(--brown-gold);
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logoutbutton {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.75rem;
+
+  padding: 0.7rem 0.75rem;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: var(--cream);
+
+  font-family: var(--font-poppins), sans-serif;
+
+  font-size: 0.84rem;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.logoutbutton:hover {
+  background: rgba(217, 180, 143, 0.12);
+
+  color: var(--brown-gold);
+}
+
+.logoutbutton i {
+  width: 18px;
+
+  text-align: center;
+
+  color: var(--brown-light);
+
+  font-size: 0.85rem;
+}
+
+.logoutbutton:hover i {
+  color: var(--brown-gold);
+}
+
+/* =========================
+   PROFILE FOCUS
+========================= */
+
+.profilebubble:focus-visible {
+  outline: 2px solid var(--brown-gold);
+  outline-offset: 3px;
+}
+
+.profiledropdown a:focus-visible,
+.logoutbutton:focus-visible {
+  outline: 2px solid var(--brown-gold);
+  outline-offset: 2px;
+}
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 1rem;
+  }
+
+  .middlenavlist {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: rgba(43, 25, 16, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: none;
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(217, 180, 143, 0.15);
+  }
+
+  .open {
+    display: block;
+  }
+
+  .middlenavlist ul {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
+
+  .moreitem {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .morebtn {
+    justify-content: center;
+  }
+
+  .moredropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    box-shadow: none;
+    border: none;
+    background: rgba(0, 0, 0, 0.18);
+    margin-top: 0.6rem;
+    width: 90%;
+  }
+
+  .moredropdown::before {
+    display: none;
+  }
+
+  .moredropdownOpen {
+    display: flex;
+  }
+
+  .lastnavitems {
+    gap: 1rem;
+    margin-left: 2rem;
+  }
+
+  .hamburgerbtn {
+    display: block;
+  }
+
+  /* PROFILE MENU ON MOBILE */
+
+  .profiledropdown {
+    right: 0;
+    top: calc(100% + 10px);
+  }
+}
