@@ -1,9 +1,9 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
-import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 
-export default function Login() {
+export default function Signup() {
   return (
     <>
       <main>
@@ -24,12 +24,12 @@ export default function Login() {
             />
 
             <div className={styles.welcomemessage1}>
-              <h1>Welcome Back</h1>
-              <p>Sign In to Continue Your Walk With God</p>
+              <h1>Welcome</h1>
+              <p>Create an Account to Begin Your Walk With God</p>
             </div>
 
             <div className={styles.signupform}>
-              <LoginForm />
+              <SignupForm />
             </div>
 
             <div className={styles.termsblock}>
@@ -45,9 +45,9 @@ export default function Login() {
               </p>
 
               <p>
-                Dont have an Account?{" "}
-                <Link href="/signup" className={styles.signinlink}>
-                  Sign Up
+                Already have an Account?{" "}
+                <Link href="/login" className={styles.signinlink}>
+                  Sign In
                 </Link>
               </p>
             </div>
