@@ -19,6 +19,9 @@ export default function Navbar({ transparent = false }) {
 
   const { data: session, status } = useSession();
 
+  const isLoggedIn = status === "authenticated";
+  const isAdmin = session?.user?.role === "ADMIN";
+
   const navLinks = [
     { href: "/", label: "HOME" },
     { href: "/about", label: "ABOUT" },
@@ -28,13 +31,16 @@ export default function Navbar({ transparent = false }) {
     { href: "/camp", label: "CAMP" },
   ];
 
+  /*
+   * CLOSE DROPDOWNS WHEN CLICKING OUTSIDE
+   */
   useEffect(() => {
-    function handleClickOutside(e) {
-      if (moreRef.current && !moreRef.current.contains(e.target)) {
+    function handleClickOutside(event) {
+      if (moreRef.current && !moreRef.current.contains(event.target)) {
         setMoreOpen(false);
       }
 
-      if (profileRef.current && !profileRef.current.contains(e.target)) {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
         setProfileOpen(false);
       }
     }
@@ -46,28 +52,33 @@ export default function Navbar({ transparent = false }) {
     };
   }, []);
 
+  /*
+   * CLOSE ALL MENUS
+   */
   function closeMenus() {
     setMenuOpen(false);
     setMoreOpen(false);
     setProfileOpen(false);
   }
 
+  /*
+   * LOGOUT
+   */
   async function handleLogout() {
-    setProfileOpen(false);
-    setMenuOpen(false);
+    closeMenus();
 
     await signOut({
       callbackUrl: "/",
     });
   }
 
-  const isLoggedIn = status === "authenticated";
-  const isAdmin = session?.user?.role === "ADMIN";
-
   return (
     <header className={transparent ? styles.headerOverlay : styles.headerSolid}>
       <nav className={styles.nav}>
-        {/* LOGO */}
+        {/* =========================
+            LOGO
+        ========================= */}
+
         <Link href="/" onClick={closeMenus}>
           <Image
             src="/ZionLogo1-removebg-preview.png"
@@ -78,17 +89,24 @@ export default function Navbar({ transparent = false }) {
           />
         </Link>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* =========================
+            MOBILE MENU BUTTON
+        ========================= */}
+
         <button
+          type="button"
           className={styles.hamburgerbtn}
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
         >
           {menuOpen ? "✕" : "☰"}
         </button>
 
-        {/* MAIN NAVIGATION */}
+        {/* =========================
+            MAIN NAVIGATION
+        ========================= */}
+
         <div
           className={`${styles.middlenavlist} ${menuOpen ? styles.open : ""}`}
         >
@@ -105,12 +123,15 @@ export default function Navbar({ transparent = false }) {
               </li>
             ))}
 
-            {/* MORE */}
+            {/* =========================
+                MORE DROPDOWN
+            ========================= */}
+
             <li className={styles.moreitem} ref={moreRef}>
               <button
                 type="button"
                 className={styles.morebtn}
-                onClick={() => setMoreOpen(!moreOpen)}
+                onClick={() => setMoreOpen((prev) => !prev)}
                 aria-expanded={moreOpen}
               >
                 MORE
@@ -130,170 +151,186 @@ export default function Navbar({ transparent = false }) {
               >
                 <Link href="/gallery" onClick={closeMenus}>
                   <i className="fa-solid fa-images"></i>
-                  Gallery
+                  <span>Gallery</span>
                 </Link>
 
                 <Link href="/give" onClick={closeMenus}>
                   <i className="fa-solid fa-hand-holding-heart"></i>
-                  Give
+                  <span>Give</span>
                 </Link>
 
                 <Link href="/prayer-request" onClick={closeMenus}>
                   <i className="fa-solid fa-hands-praying"></i>
-                  Prayer Request
+                  <span>Prayer Request</span>
                 </Link>
               </div>
             </li>
           </ul>
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* =========================
+            RIGHT SIDE
+        ========================= */}
+
         <div className={styles.lastnavitems}>
-          <Link href="/camp">
-            <button className={styles.campbookbtn}>Camp</button>
+          {/* CAMP BUTTON */}
+
+          <Link href="/camp" onClick={closeMenus}>
+            <button type="button" className={styles.campbookbtn}>
+              Camp
+            </button>
           </Link>
 
-          {/* PROFILE */}
+          {/* =========================
+              PROFILE AREA
+          ========================= */}
+
           <div
             className={styles.profilewrapper}
             ref={profileRef}
-            onMouseEnter={() => {
-              if (window.innerWidth > 768) {
-                setProfileOpen(true);
-              }
-            }}
-            onMouseLeave={() => {
-              if (window.innerWidth > 768) {
-                setProfileOpen(false);
-              }
-            }}
+            onMouseEnter={() => setProfileOpen(true)}
+            onMouseLeave={() => setProfileOpen(false)}
           >
-            {status === "loading" ? (
-              <div className={styles.profilebubble}>
-                <Image
-                  src="/userprofile.png"
-                  alt="Profile"
-                  width={70}
-                  height={70}
-                />
-              </div>
-            ) : (
-              <>
-                <button
-                  type="button"
-                  className={styles.profilebubble}
-                  onClick={() => setProfileOpen(!profileOpen)}
-                  aria-label="Open profile menu"
-                  aria-expanded={profileOpen}
-                >
-                  <Image
-                    src="/userprofile.png"
-                    alt="Profile"
-                    width={70}
-                    height={70}
-                  />
-                </button>
+            {/* PROFILE BUTTON */}
 
-                <div
-                  className={`${styles.profiledropdown} ${
-                    profileOpen ? styles.profiledropdownOpen : ""
-                  }`}
-                >
-                  {isLoggedIn ? (
-                    <>
-                      {/* USER INFORMATION */}
-                      <div className={styles.profileheader}>
-                        <div className={styles.profileheaderimage}>
-                          <Image
-                            src="/userprofile.png"
-                            alt="Profile"
-                            width={45}
-                            height={45}
-                          />
-                        </div>
+            <button
+              type="button"
+              className={styles.profilebubble}
+              onClick={() => setProfileOpen((prev) => !prev)}
+              aria-label="Open profile menu"
+              aria-expanded={profileOpen}
+            >
+              <Image
+                src="/userprofile.png"
+                alt="Profile"
+                width={70}
+                height={70}
+              />
+            </button>
 
-                        <div className={styles.profileuserinfo}>
-                          <strong>
-                            {session?.user?.name || "Zion Member"}
-                          </strong>
+            {/* =========================
+                PROFILE DROPDOWN
+            ========================= */}
 
-                          <span>{session?.user?.email}</span>
-                        </div>
-                      </div>
+            <div
+              className={`${styles.profiledropdown} ${
+                profileOpen ? styles.profiledropdownOpen : ""
+              }`}
+            >
+              {/* =========================
+                  LOGGED IN
+              ========================= */}
 
-                      <div className={styles.profiledivider}></div>
+              {isLoggedIn ? (
+                <>
+                  {/* USER HEADER */}
 
-                      {/* PROFILE */}
-                      <Link href="/dashboard/profile" onClick={closeMenus}>
-                        <i className="fa-solid fa-user"></i>
-                        <span>Profile</span>
-                      </Link>
+                  <div className={styles.profileheader}>
+                    <div className={styles.profileheaderimage}>
+                      <Image
+                        src="/userprofile.png"
+                        alt="Profile"
+                        width={45}
+                        height={45}
+                      />
+                    </div>
 
-                      {/* DASHBOARD */}
-                      <Link href="/dashboard" onClick={closeMenus}>
-                        <i className="fa-solid fa-gauge-high"></i>
-                        <span>Dashboard</span>
-                      </Link>
+                    <div className={styles.profileuserinfo}>
+                      <strong>{session?.user?.name || "Zion Member"}</strong>
 
-                      {/* ADMIN DASHBOARD */}
-                      {isAdmin && (
-                        <Link href="/admin" onClick={closeMenus}>
-                          <i className="fa-solid fa-shield-halved"></i>
-                          <span>Admin Dashboard</span>
-                        </Link>
-                      )}
+                      <span>{session?.user?.email}</span>
+                    </div>
+                  </div>
 
-                      <div className={styles.profiledivider}></div>
+                  <div className={styles.profiledivider}></div>
 
-                      {/* LOGOUT */}
-                      <button
-                        type="button"
-                        className={styles.logoutbutton}
-                        onClick={handleLogout}
-                      >
-                        <i className="fa-solid fa-right-from-bracket"></i>
-                        <span>Log Out</span>
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <div className={styles.profileheader}>
-                        <div className={styles.profileheaderimage}>
-                          <Image
-                            src="/userprofile.png"
-                            alt="Profile"
-                            width={45}
-                            height={45}
-                          />
-                        </div>
+                  {/* PROFILE */}
 
-                        <div className={styles.profileuserinfo}>
-                          <strong>Welcome to Zion</strong>
-                          <span>Sign in to your account</span>
-                        </div>
-                      </div>
+                  <Link href="/dashboard/profile" onClick={closeMenus}>
+                    <i className="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                  </Link>
 
-                      <div className={styles.profiledivider}></div>
+                  {/* DASHBOARD */}
 
-                      <Link href="/login" onClick={closeMenus}>
-                        <i className="fa-solid fa-right-to-bracket"></i>
-                        <span>Sign In</span>
-                      </Link>
+                  <Link href="/dashboard" onClick={closeMenus}>
+                    <i className="fa-solid fa-gauge-high"></i>
+                    <span>Dashboard</span>
+                  </Link>
 
-                      <Link href="/signup" onClick={closeMenus}>
-                        <i className="fa-solid fa-user-plus"></i>
-                        <span>Create Account</span>
-                      </Link>
-                    </>
+                  {/* ADMIN DASHBOARD */}
+
+                  {isAdmin && (
+                    <Link href="/admin" onClick={closeMenus}>
+                      <i className="fa-solid fa-shield-halved"></i>
+                      <span>Admin Dashboard</span>
+                    </Link>
                   )}
-                </div>
-              </>
-            )}
+
+                  <div className={styles.profiledivider}></div>
+
+                  {/* LOGOUT */}
+
+                  <button
+                    type="button"
+                    className={styles.logoutbutton}
+                    onClick={handleLogout}
+                  >
+                    <i className="fa-solid fa-right-from-bracket"></i>
+                    <span>Log Out</span>
+                  </button>
+                </>
+              ) : (
+                /* =========================
+                   LOGGED OUT
+                ========================= */
+
+                <>
+                  {/* GUEST HEADER */}
+
+                  <div className={styles.profileheader}>
+                    <div className={styles.profileheaderimage}>
+                      <Image
+                        src="/userprofile.png"
+                        alt="Profile"
+                        width={45}
+                        height={45}
+                      />
+                    </div>
+
+                    <div className={styles.profileuserinfo}>
+                      <strong>Welcome to Zion</strong>
+
+                      <span>Sign in to your account</span>
+                    </div>
+                  </div>
+
+                  <div className={styles.profiledivider}></div>
+
+                  {/* SIGN IN */}
+
+                  <Link href="/login" onClick={closeMenus}>
+                    <i className="fa-solid fa-right-to-bracket"></i>
+                    <span>Sign In</span>
+                  </Link>
+
+                  {/* CREATE ACCOUNT */}
+
+                  <Link href="/signup" onClick={closeMenus}>
+                    <i className="fa-solid fa-user-plus"></i>
+                    <span>Create Account</span>
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* UPCOMING EVENT BAR */}
+      {/* =========================
+          UPCOMING EVENT BAR
+      ========================= */}
+
       <div className={styles.upcomingeventtag}>
         <p>August 20th - Upcoming Convention</p>
       </div>
