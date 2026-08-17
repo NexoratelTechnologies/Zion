@@ -2,11 +2,6 @@
   width: 235px;
   flex-shrink: 0;
 
-  position: sticky;
-  top: 0;
-
-  height: 100vh;
-
   display: flex;
   flex-direction: column;
 
@@ -14,12 +9,8 @@
 
   border-right: 1px solid var(--border);
 
-  background: rgba(9, 6, 4, 0.55);
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  z-index: 2;
+  /* solid colour instead of translucent + blur */
+  background: #150e09;
 }
 
 /* BRAND */

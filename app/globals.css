@@ -1,7 +1,4 @@
-html,
-body {
-  height: 100%;
-}
+@import "tailwindcss";
 
 body {
   display: flex;
@@ -21,5 +18,3 @@ main {
   --cream: #f3e6d8;
   --brown-classic: #a52a2a;
 }
-
-@import "tailwindcss";

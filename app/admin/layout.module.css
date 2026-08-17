@@ -6,18 +6,16 @@
   --brown-wine: #7a3b3b;
   --cream: #f3e6d8;
 
-  --surface: rgba(255, 248, 239, 0.045);
-  --surface-hover: rgba(255, 248, 239, 0.07);
+  --surface: rgba(255, 248, 239, 0.08);
+  --surface-hover: rgba(255, 248, 239, 0.11);
   --border: rgba(217, 180, 143, 0.14);
-
-  position: relative;
 
   display: flex;
   align-items: stretch;
 
   min-height: 100vh;
 
-  /* solid colour, not a gradient with an end-point — never "runs out" */
+  /* plain solid colour, no fixed/backdrop-filter layers involved */
   background: #120c08;
 
   color: var(--cream);
@@ -25,38 +23,15 @@
   font-family: var(--font-poppins), sans-serif;
 }
 
-/* pinned to the viewport, not the page, so it can't get cut off
-   no matter how tall the content grows */
-.glow {
-  position: fixed;
-  inset: 0;
-
-  z-index: 0;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      circle at 12% 0%,
-      rgba(217, 174, 115, 0.1),
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 100% 15%,
-      rgba(122, 59, 59, 0.14),
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 45% 100%,
-      rgba(111, 67, 37, 0.12),
-      transparent 50%
-    );
-}
-
 .mainArea {
-  position: relative;
-  z-index: 1;
-
   flex: 1;
   min-width: 0;
+}
+
+/* MOBILE — sidebar becomes a horizontal top bar, so the shell
+   needs to stack vertically instead of staying side-by-side */
+@media (max-width: 900px) {
+  .adminShell {
+    flex-direction: column;
+  }
 }

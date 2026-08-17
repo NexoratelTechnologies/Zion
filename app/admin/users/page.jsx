@@ -24,12 +24,24 @@ export default async function UsersPage() {
         {users.map((user) => (
           <div key={user.id} className={styles.usercard}>
             <div className={styles.userinfo}>
-              <h2>{user.name}</h2>
-              <p className={styles.email}>{user.email}</p>
-              <p className={styles.joined}>
-                Joined {new Date(user.createdAt).toLocaleDateString()}
-              </p>
+              <div className={styles.avatar}>
+                {user.name?.charAt(0)?.toUpperCase() || "Z"}
+              </div>
+
+              <div className={styles.userdetails}>
+                <h2>{user.name}</h2>
+                <p className={styles.email}>{user.email}</p>
+              </div>
             </div>
+
+            <p className={styles.joined}>
+              Joined{" "}
+              {new Date(user.createdAt).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </p>
 
             <div className={styles.usercontrols}>
               <span className={styles.rolebadge} data-role={user.role}>
