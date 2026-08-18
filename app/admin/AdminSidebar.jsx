@@ -8,6 +8,11 @@ const tabs = [
   { href: "/admin", label: "Dashboard", icon: "fa-solid fa-gauge-high" },
   { href: "/admin/users", label: "Users", icon: "fa-solid fa-users" },
   {
+    href: "/admin/prayer-requests",
+    label: "Prayer Requests",
+    icon: "fa-solid fa-hands-praying",
+  },
+  {
     href: "/admin/content",
     label: "Content",
     icon: "fa-solid fa-pen-to-square",

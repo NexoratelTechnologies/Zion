@@ -2,6 +2,7 @@
 
 import { useActionState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
+import { useSearchParams } from "next/navigation";
 import styles from "./page.module.css";
 import { login } from "../actions/auth";
 
@@ -17,15 +18,18 @@ function SubmitButton() {
 
 export default function LoginForm() {
   const [state, formAction] = useActionState(login, null);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (state?.success) {
       // Full page reload (not router.push) so SessionProvider remounts
       // and fetches the real session — avoids stale/mismatched user data
       // showing in the Navbar after login.
-      window.location.href = "/dashboard";
+      const callbackUrl = searchParams.get("callbackUrl");
+      window.location.href =
+        callbackUrl && callbackUrl.startsWith("/") ? callbackUrl : "/dashboard";
     }
-  }, [state]);
+  }, [state, searchParams]);
 
   return (
     <form action={formAction} className={styles.form}>

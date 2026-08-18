@@ -23,6 +23,11 @@ export default async function ProfilePage() {
     redirect("/login");
   }
 
+  const prayerRequests = await prisma.prayerRequest.findMany({
+    where: { userId: user.id },
+    orderBy: { createdAt: "desc" },
+  });
+
   return (
     <>
       <Navbar />
@@ -121,6 +126,38 @@ export default async function ProfilePage() {
               </button>
             </form>
           </div>
+        </div>
+
+        <div className={styles.prayerhistory}>
+          <h2 className={styles.cardtitle}>My Prayer Requests</h2>
+
+          {prayerRequests.length === 0 ? (
+            <p className={styles.emptyPrayerText}>
+              You haven&apos;t submitted a prayer request yet.
+            </p>
+          ) : (
+            <div className={styles.prayerlist}>
+              {prayerRequests.map((req) => (
+                <div key={req.id} className={styles.prayeritem}>
+                  <div className={styles.prayeritemtop}>
+                    <span className={styles.prayerbranch}>
+                      {req.department} · {req.branch}
+                    </span>
+                    <span className={styles.prayertime}>
+                      {new Date(req.createdAt).toLocaleString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                      })}
+                    </span>
+                  </div>
+                  <p className={styles.prayertext}>{req.request}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </main>
       <Footer />
