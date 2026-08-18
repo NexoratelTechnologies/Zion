@@ -287,6 +287,34 @@
   object-fit: cover;
 }
 
+.profileinitial {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--cream);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.profileheaderinitial {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, var(--brown-mid), var(--brown-deep));
+  color: var(--cream);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 /* =========================
    UPCOMING EVENT BAR
 ========================= */
@@ -798,13 +826,16 @@
 .profileheaderimage {
   width: 45px;
   height: 45px;
-
   flex-shrink: 0;
-
   border-radius: 50%;
   overflow: hidden;
-
   border: 1px solid rgba(217, 180, 143, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, var(--brown-mid), var(--brown-deep));
 }
 
 .profileheaderimage img {
@@ -813,6 +844,19 @@
   object-fit: cover;
 }
 
+.profileheaderinitial {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--cream);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
 .profileuserinfo {
   min-width: 0;
 
