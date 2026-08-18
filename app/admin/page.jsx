@@ -239,6 +239,14 @@ export default async function AdminPage() {
 
                 <i className="fa-solid fa-arrow-right"></i>
               </Link>
+              <Link href="/admin/bookings" className={styles.managementButton}>
+                <span>
+                  <i className="fa-solid fa-calendar-check"></i>
+                  Manage Bookings
+                </span>
+
+                <i className="fa-solid fa-arrow-right"></i>
+              </Link>
             </div>
           </div>
 
