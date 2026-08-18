@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Suspense } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import LoginForm from "./LoginForm";
@@ -29,7 +30,9 @@ export default function Login() {
             </div>
 
             <div className={styles.signupform}>
-              <LoginForm />
+              <Suspense fallback={null}>
+                <LoginForm />
+              </Suspense>
             </div>
 
             <div className={styles.termsblock}>
