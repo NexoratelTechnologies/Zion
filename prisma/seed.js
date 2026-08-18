@@ -145,7 +145,24 @@ async function main() {
       ],
     },
   });
-  
+  // ===== PRAYER CAMP =====
+
+  await prisma.camp.upsert({
+    where: {
+      id: "zion-prayer-camp-2026",
+    },
+    update: {
+      name: "Zion Prayer Camp 2026",
+      arrivalDate: new Date("2026-08-20T00:00:00"),
+      departureDate: new Date("2026-08-24T00:00:00"),
+    },
+    create: {
+      id: "zion-prayer-camp-2026",
+      name: "Zion Prayer Camp 2026",
+      arrivalDate: new Date("2026-08-20T00:00:00"),
+      departureDate: new Date("2026-08-24T00:00:00"),
+    },
+  });
 
   console.log("Seed data created ✅");
 }

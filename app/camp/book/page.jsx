@@ -1,27 +1,90 @@
+"use client";
+
 import styles from "./page.module.css";
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 import Footer from "@/components/Footer";
+import { useActionState } from "react";
+import { createBooking } from "@/app/actions/booking";
 
-// Placeholder until this is wired to a real Camp record from the database
-const campStartDate = "2026-08-20";
-const campEndDate = "2026-08-24";
+const initialState = {
+  success: false,
+  error: null,
+  bookingId: null,
+};
 
 export default function Book() {
+  const [state, formAction, pending] = useActionState(
+    createBooking,
+    initialState,
+  );
+
+  if (state.success) {
+    return (
+      <>
+        <Navbar />
+
+        <main>
+          <section className={styles.campbooksec}>
+            <div className={styles.heading}>
+              <p className={styles.headingtag}>Prayer Camp</p>
+
+              <h1>BOOKING CONFIRMED</h1>
+
+              <p className={styles.headingsub}>
+                Thank you for booking your place at prayer camp.
+              </p>
+            </div>
+
+            <div className={styles.campdatesbox}>
+              <div className={styles.campdateitem}>
+                <div>
+                  <p className={styles.campdatelabel}>Your Booking ID</p>
+
+                  <p className={styles.campdatevalue}>{state.bookingId}</p>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              Please keep your Booking ID for your records. Your booking is
+              currently <strong>Pending</strong>.
+            </p>
+          </section>
+        </main>
+
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <Navbar />
+
       <main>
         <section className={styles.campbooksec}>
           <div className={styles.heading}>
             <p className={styles.headingtag}>Prayer Camp</p>
+
             <h1>BOOK YOUR SPOT</h1>
+
             <p className={styles.headingsub}>
               Fill in your details below to reserve your place at camp
             </p>
           </div>
 
-          <form action="" className={styles.form}>
+          {state.error && (
+            <p
+              style={{
+                color: "red",
+                marginBottom: "20px",
+              }}
+            >
+              {state.error}
+            </p>
+          )}
+
+          <form action={formAction} className={styles.form}>
             <div className={styles.formsectiontitle}>
               <span className={styles.formsectionnum}>01</span>
               <p>Personal Information</p>
@@ -30,6 +93,7 @@ export default function Book() {
             <div className={styles.formrow}>
               <div className={styles.formgroup}>
                 <label htmlFor="fullName">Full Name</label>
+
                 <input
                   type="text"
                   id="fullName"
@@ -43,6 +107,7 @@ export default function Book() {
             <div className={styles.formrow}>
               <div className={styles.formgroup}>
                 <label htmlFor="phone">Phone Number</label>
+
                 <input
                   type="tel"
                   id="phone"
@@ -54,6 +119,7 @@ export default function Book() {
 
               <div className={styles.formgroup}>
                 <label htmlFor="email">Email</label>
+
                 <input
                   type="email"
                   id="email"
@@ -67,24 +133,33 @@ export default function Book() {
             <div className={styles.formrow}>
               <div className={styles.formgroup}>
                 <label htmlFor="gender">Gender</label>
+
                 <select id="gender" name="gender" required defaultValue="">
                   <option value="" disabled>
                     Select gender
                   </option>
+
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
               </div>
 
               <div className={styles.formgroup}>
-                <label htmlFor="dob">Date of Birth</label>
-                <input type="date" id="dob" name="dob" required />
+                <label htmlFor="dateOfBirth">Date of Birth</label>
+
+                <input
+                  type="date"
+                  id="dateOfBirth"
+                  name="dateOfBirth"
+                  required
+                />
               </div>
             </div>
 
             <div className={styles.formrow}>
               <div className={styles.formgroup}>
                 <label htmlFor="emergencyContact">Emergency Contact</label>
+
                 <input
                   type="tel"
                   id="emergencyContact"
@@ -103,15 +178,11 @@ export default function Book() {
             <div className={styles.campdatesbox}>
               <div className={styles.campdateitem}>
                 <i className="fa-regular fa-calendar"></i>
+
                 <div>
                   <p className={styles.campdatelabel}>Arrival</p>
-                  <p className={styles.campdatevalue}>
-                    {new Date(campStartDate).toLocaleDateString("en-GB", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
+
+                  <p className={styles.campdatevalue}>20 August 2026</p>
                 </div>
               </div>
 
@@ -119,15 +190,11 @@ export default function Book() {
 
               <div className={styles.campdateitem}>
                 <i className="fa-regular fa-calendar"></i>
+
                 <div>
                   <p className={styles.campdatelabel}>Departure</p>
-                  <p className={styles.campdatevalue}>
-                    {new Date(campEndDate).toLocaleDateString("en-GB", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
+
+                  <p className={styles.campdatevalue}>24 August 2026</p>
                 </div>
               </div>
             </div>
@@ -142,6 +209,7 @@ export default function Book() {
                 <label htmlFor="prayerRequest">
                   Prayer Request <span>(optional)</span>
                 </label>
+
                 <textarea
                   id="prayerRequest"
                   name="prayerRequest"
@@ -156,6 +224,7 @@ export default function Book() {
                 <label htmlFor="notes">
                   Additional Notes <span>(optional)</span>
                 </label>
+
                 <textarea
                   id="notes"
                   name="notes"
@@ -165,12 +234,17 @@ export default function Book() {
               </div>
             </div>
 
-            <button type="submit" className={styles.submitbtn}>
-              Confirm Booking
+            <button
+              type="submit"
+              className={styles.submitbtn}
+              disabled={pending}
+            >
+              {pending ? "Submitting..." : "Confirm Booking"}
             </button>
           </form>
         </section>
       </main>
+
       <Footer />
     </>
   );
