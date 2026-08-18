@@ -28,6 +28,7 @@ model User {
   updatedAt DateTime @updatedAt
 
   prayerRequests PrayerRequest[]
+  bookings       Booking[]
 }
 
 model SiteContent {
@@ -50,4 +51,56 @@ model PrayerRequest {
   anonymous  Boolean @default(false)
 
   createdAt DateTime @default(now())
+}
+
+enum CampStatus {
+  OPEN
+  CLOSED
+}
+
+enum BookingStatus {
+  PENDING
+  APPROVED
+  DECLINED
+}
+
+model Camp {
+  id            String     @id @default(cuid())
+  name          String
+  description   String?
+  arrivalDate   DateTime
+  departureDate DateTime
+  location      String?
+  capacity      Int?
+  status        CampStatus @default(OPEN)
+
+  bookings Booking[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Booking {
+  id        String @id @default(cuid())
+  bookingId String @unique
+
+  campId String
+  camp   Camp   @relation(fields: [campId], references: [id], onDelete: Cascade)
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  fullName         String
+  email            String
+  phone            String
+  gender           String
+  dateOfBirth      DateTime
+  emergencyContact String
+  prayerRequest    String?
+  notes            String?
+
+  status BookingStatus @default(PENDING)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

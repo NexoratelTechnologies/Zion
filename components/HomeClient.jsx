@@ -49,13 +49,18 @@ export default function HomeClient({
         {/* HERO */}
         <section className={styles.hero}>
           <div className={styles.heroimage}>
-            <Image
-              src={heroImage[currentIndex]}
-              alt="Zion Church"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            />
+            {heroImage.map((image, index) => (
+              <Image
+                key={image}
+                src={image}
+                alt="Zion Church"
+                fill
+                priority={index === 0}
+                className={`${styles.heroSlide} ${
+                  index === currentIndex ? styles.heroSlideActive : ""
+                }`}
+              />
+            ))}
           </div>
 
           <div className={styles.divfordots}>
