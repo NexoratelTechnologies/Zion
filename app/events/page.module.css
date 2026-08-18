@@ -1,173 +1,293 @@
+/* =========================
+   HERO
+========================= */
+
 .hero {
-  padding: 5rem 1.5rem 3rem;
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.heroeyebrow {
-  font-family: var(--font-poppins), sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #a52a2a;
-  display: block;
-  margin-bottom: 0.6rem;
-}
-
-.hero h1 {
-  font-family: var(--font-anton), sans-serif;
-  text-transform: uppercase;
-  font-size: 2.8rem;
-  color: #3e2317;
-}
-
-.hero p {
-  font-family: var(--font-oswald), sans-serif;
-  color: #6b5b4d;
-  font-size: 1.05rem;
-  margin-top: 1rem;
-  line-height: 1.6;
-}
-
-.eventsgrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 6rem;
-}
-
-.eventcard {
-  background-color: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px -28px rgba(62, 35, 23, 0.35);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.eventcard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 44px -24px rgba(62, 35, 23, 0.4);
-}
-
-.eventimagewrap {
   position: relative;
+
   width: 100%;
-  height: 200px;
+  height: 46vh;
+
+  min-height: 320px;
+  max-height: 480px;
 }
 
-.eventimage {
+.heroImage {
   object-fit: cover;
 }
 
-.datebadge {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: #a52a2a;
+/* =========================
+   UPCOMING BAND
+========================= */
+
+.upcomingBand {
+  padding: 2.5rem clamp(1.25rem, 5vw, 5rem) 2rem;
+
+  background: linear-gradient(135deg, #2b1910 0%, #3e2317 100%);
+
   color: #f3e6d8;
-  border-radius: 10px;
-  padding: 0.5rem 0.9rem;
-  text-align: center;
-  line-height: 1.1;
-  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.4);
 }
 
-.datemonth {
+.upcomingEyebrow {
   display: block;
-  font-family: var(--font-poppins), sans-serif;
+
+  margin-bottom: 0.4rem;
+
+  color: #d9b48f;
+
+  font-family: var(--font-roboto-condensed), sans-serif;
+
   font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.dateday {
-  display: block;
-  font-family: var(--font-oswald), sans-serif;
-  font-size: 1.4rem;
+.upcomingBand h1 {
+  margin: 0 0 1.75rem;
+
+  font-family: var(--font-playfair), serif;
+
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+
   font-weight: 600;
+
+  letter-spacing: -0.02em;
 }
 
-.eventbody {
-  padding: 1.5rem 1.5rem 1.75rem;
+/* =========================
+   SHARED ROW STRUCTURE
+   (used for both the featured row and the plain-list rows)
+========================= */
+
+.featuredRow,
+.eventRow {
+  display: flex;
+
+  gap: 1.25rem;
+
+  padding: 1.35rem 0;
 }
 
-.eventbody h3 {
-  font-family: var(--font-oswald), sans-serif;
-  font-size: 1.3rem;
+.featuredRow {
+  border-top: 1px solid rgba(243, 230, 216, 0.14);
+}
+
+.dateBox {
+  flex-shrink: 0;
+
+  width: 68px;
+  height: 68px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+}
+
+.featuredRow .dateBox {
+  background: #f3e6d8;
+
+  color: #2b1910;
+}
+
+.dateNumber {
+  font-family: var(--font-playfair), serif;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.dateMonth {
+  margin-top: 0.15rem;
+
+  font-family: var(--font-roboto-condensed), sans-serif;
+
+  font-size: 0.62rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+.rowContent {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.rowContent h3 {
+  margin: 0.1rem 0 0;
+
+  font-family: var(--font-playfair), serif;
+
+  font-size: 1.05rem;
+
+  font-weight: 600;
+
+  line-height: 1.35;
+}
+
+.rowDescription {
+  margin: 0.5rem 0 0;
+
+  max-width: 520px;
+
+  font-size: 0.78rem;
+
+  line-height: 1.6;
+}
+
+.rowTime {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.4rem;
+
+  margin-top: 0.6rem;
+
+  font-family: var(--font-roboto-condensed), sans-serif;
+
+  font-size: 0.72rem;
+}
+
+.featuredRow .rowDescription {
+  color: rgba(243, 230, 216, 0.65);
+}
+
+.featuredRow .rowTime {
+  color: rgba(243, 230, 216, 0.55);
+}
+
+/* =========================
+   EVENTS LIST (white section)
+========================= */
+
+.eventsList {
+  padding: 0.5rem clamp(1.25rem, 5vw, 5rem) 3rem;
+
+  background: #f3e6d8;
+
   color: #3e2317;
 }
 
-.eventmeta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 0.6rem;
-  font-family: var(--font-poppins), sans-serif;
-  font-size: 0.82rem;
-  color: #9c8b7a;
+.eventRow {
+  border-top: 1px solid rgba(62, 35, 23, 0.12);
 }
 
-.eventmeta span {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+.eventRow .dateBox {
+  background: #e0c9a6;
+
+  color: #3e2317;
 }
 
-.eventmeta i {
-  color: #a52a2a;
+.eventsList .rowDescription {
+  color: rgba(62, 35, 23, 0.7);
 }
 
-.eventbody p {
-  font-family: var(--font-poppins), sans-serif;
-  font-size: 0.92rem;
-  color: #5c5044;
-  line-height: 1.6;
-  margin-top: 0.9rem;
+.eventsList .rowTime {
+  color: rgba(62, 35, 23, 0.55);
 }
 
-.eventbtn {
-  margin-top: 1.25rem;
-  padding: 0.6rem 1.4rem;
-  background-color: #a52a2a;
-  color: #f3e6d8;
-  border: none;
-  border-radius: 30px;
-  font-family: var(--font-poppins), sans-serif;
+/* =========================
+   EMPTY STATE
+========================= */
+
+.emptyState {
+  padding: 3rem 1rem;
+
+  text-align: center;
+
+  color: rgba(62, 35, 23, 0.5);
+
   font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    background-color 0.25s ease,
-    transform 0.2s ease;
 }
 
-.eventbtn:hover {
-  background-color: #8a2222;
-  transform: translateY(-2px);
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .hero {
+    height: 38vh;
+
+    min-height: 260px;
+  }
 }
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 1024px) {
-  .eventsgrid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 700px) {
+  .hero {
+    height: 30vh;
+
+    min-height: 220px;
+  }
+
+  .upcomingBand {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+
+  .upcomingBand h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .eventsList {
+    padding: 0.25rem 1.25rem 2.5rem;
+  }
+
+  .featuredRow,
+  .eventRow {
+    gap: 0.9rem;
+
+    padding: 1.1rem 0;
+  }
+
+  .dateBox {
+    width: 54px;
+    height: 54px;
+  }
+
+  .dateNumber {
+    font-size: 1.2rem;
+  }
+
+  .rowContent h3 {
+    font-size: 0.92rem;
+  }
+
+  .rowDescription {
+    font-size: 0.72rem;
+  }
+
+  .rowTime {
+    font-size: 0.66rem;
   }
 }
 
-@media (max-width: 650px) {
-  .eventsgrid {
-    grid-template-columns: 1fr;
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+  .dateBox {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 8px;
   }
 
-  .hero h1 {
-    font-size: 2.2rem;
+  .dateNumber {
+    font-size: 1rem;
+  }
+
+  .dateMonth {
+    font-size: 0.55rem;
   }
 }

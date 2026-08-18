@@ -1,92 +1,86 @@
-import styles from "./page.module.css";
+import { prisma } from "@/lib/prisma";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import styles from "./page.module.css";
 
-const events = [
-  {
-    id: 1,
-    month: "AUG",
-    day: "20",
-    title: "Upcoming Convention",
-    time: "9:00 AM",
-    location: "Main Auditorium",
-    image: "/eventplaceholder1.jpg",
-    blurb:
-      "Join us for a weekend of worship, teaching, and fellowship as we come together as one body.",
-  },
-  {
-    id: 2,
-    month: "SEP",
-    day: "05",
-    title: "Youth Fellowship Night",
-    time: "6:00 PM",
-    location: "Youth Hall",
-    image: "/eventplaceholder2.jpg",
-    blurb:
-      "A night dedicated to our young people — games, worship, and an honest word for the next generation.",
-  },
-  {
-    id: 3,
-    month: "SEP",
-    day: "14",
-    title: "Community Outreach",
-    time: "10:00 AM",
-    location: "Agona Swedru Town Center",
-    image: "/eventplaceholder3.jpg",
-    blurb:
-      "We're taking the church to the streets — food, prayer, and practical help for our neighbors.",
-  },
-];
+export default async function Events() {
+  const eventsContent = await prisma.siteContent.findUnique({
+    where: { key: "events_upcoming_list" },
+  });
 
-export default function Events() {
+  const events = eventsContent?.value ?? [];
+  const [featuredEvent, ...restEvents] = events;
+
   return (
     <>
       <Navbar />
+
       <main>
         <section className={styles.hero}>
-          <span className={styles.heroeyebrow}>whats coming up</span>
-          <h1>Events</h1>
-          <p>
-            From citywide conventions to small gatherings, heres everything
-            happening at Zion.
-          </p>
+          <Image
+            src="/churchworship2.jpg"
+            alt="Zion Chapel worship service"
+            fill
+            priority
+            className={styles.heroImage}
+          />
         </section>
 
-        <section className={styles.eventsgrid}>
-          {events.map((event) => (
-            <div key={event.id} className={styles.eventcard}>
-              <div className={styles.eventimagewrap}>
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  fill
-                  className={styles.eventimage}
-                />
-                <div className={styles.datebadge}>
-                  <span className={styles.datemonth}>{event.month}</span>
-                  <span className={styles.dateday}>{event.day}</span>
-                </div>
+        <section className={styles.upcomingBand}>
+          <span className={styles.upcomingEyebrow}>whats coming up</span>
+          <h1>Upcoming</h1>
+
+          {featuredEvent && (
+            <div className={styles.featuredRow}>
+              <div className={styles.dateBox}>
+                <span className={styles.dateNumber}>{featuredEvent.date}</span>
+                <span className={styles.dateMonth}>{featuredEvent.month}</span>
               </div>
 
-              <div className={styles.eventbody}>
-                <h3>{event.title}</h3>
-                <div className={styles.eventmeta}>
-                  <span>
-                    <i className="fa-regular fa-clock"></i> {event.time}
-                  </span>
-                  <span>
-                    <i className="fa-solid fa-location-dot"></i>{" "}
-                    {event.location}
-                  </span>
-                </div>
-                <p>{event.blurb}</p>
-                <button className={styles.eventbtn}>Learn More</button>
+              <div className={styles.rowContent}>
+                <h3>{featuredEvent.title}</h3>
+                {featuredEvent.description && (
+                  <p className={styles.rowDescription}>
+                    {featuredEvent.description}
+                  </p>
+                )}
+                <span className={styles.rowTime}>
+                  <i className="fa-regular fa-clock"></i> {featuredEvent.time}
+                </span>
               </div>
             </div>
-          ))}
+          )}
+        </section>
+
+        <section className={styles.eventsList}>
+          {restEvents.length === 0 && !featuredEvent ? (
+            <div className={styles.emptyState}>
+              No upcoming events right now — check back soon.
+            </div>
+          ) : (
+            restEvents.map((event, index) => (
+              <div key={index} className={styles.eventRow}>
+                <div className={styles.dateBox}>
+                  <span className={styles.dateNumber}>{event.date}</span>
+                  <span className={styles.dateMonth}>{event.month}</span>
+                </div>
+
+                <div className={styles.rowContent}>
+                  <h3>{event.title}</h3>
+                  {event.description && (
+                    <p className={styles.rowDescription}>{event.description}</p>
+                  )}
+                  <span className={styles.rowTime}>
+                    <i className="fa-regular fa-clock"></i> {event.time}
+                  </span>
+                </div>
+              </div>
+            ))
+          )}
         </section>
       </main>
+
       <Footer />
     </>
   );

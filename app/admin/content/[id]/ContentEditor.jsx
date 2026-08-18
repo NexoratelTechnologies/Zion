@@ -88,9 +88,7 @@ export default function ContentEditor({ content }) {
             <input
               type="text"
               value={value.thumbnail ?? ""}
-              onChange={(event) =>
-                updateField("thumbnail", event.target.value)
-              }
+              onChange={(event) => updateField("thumbnail", event.target.value)}
             />
           </div>
 
@@ -348,6 +346,86 @@ export default function ContentEditor({ content }) {
               }
             />
           </div>
+        </>
+      )}
+      {/* UPCOMING EVENTS LIST */}
+      {content.key === "events_upcoming_list" && (
+        <>
+          <h2 className={styles.cardsHeading}>Upcoming Events</h2>
+
+          {value.map((event, index) => (
+            <div key={index} className={styles.repeatCard}>
+              <h3>Event {index + 1}</h3>
+
+              <div className={styles.field}>
+                <label>Date (day number)</label>
+                <input
+                  type="text"
+                  value={event.date ?? ""}
+                  onChange={(e) => updateBox(index, "date", e.target.value)}
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label>Month</label>
+                <input
+                  type="text"
+                  value={event.month ?? ""}
+                  onChange={(e) => updateBox(index, "month", e.target.value)}
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label>Title</label>
+                <input
+                  type="text"
+                  value={event.title ?? ""}
+                  onChange={(e) => updateBox(index, "title", e.target.value)}
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label>Time</label>
+                <input
+                  type="text"
+                  value={event.time ?? ""}
+                  onChange={(e) => updateBox(index, "time", e.target.value)}
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label>Short Description</label>
+                <textarea
+                  value={event.description ?? ""}
+                  onChange={(e) =>
+                    updateBox(index, "description", e.target.value)
+                  }
+                />
+              </div>
+
+              <button
+                type="button"
+                onClick={() => removeBox(index)}
+                className={styles.removeBtn}
+              >
+                Remove Event
+              </button>
+            </div>
+          ))}
+
+          <button
+            type="button"
+            onClick={() =>
+              setValue((current) => [
+                ...current,
+                { date: "", month: "", title: "", time: "", description: "" },
+              ])
+            }
+            className={styles.addBtn}
+          >
+            <i className="fa-solid fa-plus"></i>
+            Add Event
+          </button>
         </>
       )}
 
