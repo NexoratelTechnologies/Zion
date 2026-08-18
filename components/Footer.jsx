@@ -10,6 +10,7 @@ export default function Footer() {
 
   function handleSubscribe(e) {
     e.preventDefault();
+
     setSubscribed(true);
     setEmail("");
   }
@@ -25,6 +26,7 @@ export default function Footer() {
 
         <div className={styles.newsletterdiv}>
           <p>Dont Miss a Beat</p>
+
           <form onSubmit={handleSubscribe} className={styles.newsletterdiv}>
             <input
               type="email"
@@ -33,26 +35,32 @@ export default function Footer() {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
+
             <button type="submit">Subscribe</button>
           </form>
+
           <p>
             {subscribed
-              ? "Thanks for subscribing!"
+              ? "Successfully subscribed!"
               : "Subscribe to Zion Word to receive daily updates"}
           </p>
         </div>
 
         <div className={styles.footerLinks}>
           <h3>Quick Links</h3>
+
           <Link href="/">Home</Link>
           <Link href="/services">Services</Link>
           <Link href="/ministries">Ministries</Link>
           <Link href="/about">About Us</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/events">Events</Link>
+          <Link href="/sermons">Sermons</Link>
+          <Link href="/gallery">Gallery</Link>
         </div>
 
         <div className={styles.footerLinks}>
           <h3>Ministries</h3>
+
           <Link href="/ministries">Youth Ministry</Link>
           <Link href="/ministries">Children Ministry</Link>
           <Link href="/ministries">Adult Ministry</Link>
@@ -61,9 +69,11 @@ export default function Footer() {
 
         <div>
           <h3>Contact</h3>
-          <p>Kwabenya</p>
-          <p>Accra</p>
-          <p>1234 Okpa Street</p>
+
+          <p>Accra, Ghana</p>
+          <p>East Legon, Accra</p>
+          <p>info@zionword.org</p>
+          <p>+233 57 567 3875</p>
         </div>
       </div>
 
@@ -74,22 +84,32 @@ export default function Footer() {
           <a href="#" aria-label="Facebook">
             <i className="fa-brands fa-facebook"></i>
           </a>
+
           <a href="#" aria-label="Instagram">
             <i className="fa-brands fa-instagram"></i>
           </a>
+
           <a href="#" aria-label="YouTube">
             <i className="fa-brands fa-youtube"></i>
           </a>
+
           <a href="#" aria-label="TikTok">
             <i className="fa-brands fa-tiktok"></i>
           </a>
+
           <a href="#" aria-label="X">
             <i className="fa-brands fa-x-twitter"></i>
           </a>
         </div>
 
+        <div className={styles.legalLinks}>
+          <Link href="/privacy">Privacy Policy</Link>
+          <span>•</span>
+          <Link href="/terms">Terms & Conditions</Link>
+        </div>
+
         <div className={styles.copyrightonfooter}>
-          <p>&copy;Copyright. All Rights Reserved</p>
+          <p>&copy; Copyright. All Rights Reserved</p>
         </div>
       </div>
     </footer>

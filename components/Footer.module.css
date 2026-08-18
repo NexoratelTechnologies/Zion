@@ -166,10 +166,34 @@
   color: #d9b48f;
 }
 
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.75rem;
+}
+
+.legalLinks a {
+  color: rgba(243, 230, 216, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legalLinks a:hover {
+  color: #d9b48f;
+}
+
+.legalLinks span {
+  color: rgba(243, 230, 216, 0.25);
+}
+
 @media (max-width: 900px) {
   .firstpartoffooter {
     gap: 3rem;
   }
+
   .zacross {
     display: none;
   }
@@ -184,5 +208,10 @@
 
   .footer {
     padding: 2.5rem 1.5rem 1.5rem;
+  }
+
+  .legalLinks {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

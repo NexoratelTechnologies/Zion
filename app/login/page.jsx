@@ -42,7 +42,7 @@ export default function Login() {
                   Terms
                 </Link>{" "}
                 and{" "}
-                <Link href="/privacy-policy" className={styles.termslink}>
+                <Link href="/privacy" className={styles.termslink}>
                   Privacy Policy
                 </Link>
               </p>
