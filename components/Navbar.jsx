@@ -21,6 +21,7 @@ export default function Navbar({ transparent = false }) {
 
   const isLoggedIn = status === "authenticated";
   const isAdmin = session?.user?.role === "ADMIN";
+  const userInitial = session?.user?.name?.trim()?.charAt(0)?.toUpperCase();
 
   const navLinks = [
     { href: "/", label: "HOME" },
@@ -200,12 +201,16 @@ export default function Navbar({ transparent = false }) {
               aria-label="Open profile menu"
               aria-expanded={profileOpen}
             >
-              <Image
-                src="/userprofile.png"
-                alt="Profile"
-                width={70}
-                height={70}
-              />
+              {isLoggedIn ? (
+                <span className={styles.profileinitial}>{userInitial}</span>
+              ) : (
+                <Image
+                  src="/userprofile.png"
+                  alt="Profile"
+                  width={70}
+                  height={70}
+                />
+              )}
             </button>
 
             {/* =========================
@@ -227,12 +232,9 @@ export default function Navbar({ transparent = false }) {
 
                   <div className={styles.profileheader}>
                     <div className={styles.profileheaderimage}>
-                      <Image
-                        src="/userprofile.png"
-                        alt="Profile"
-                        width={45}
-                        height={45}
-                      />
+                      <span className={styles.profileheaderinitial}>
+                        {userInitial}
+                      </span>
                     </div>
 
                     <div className={styles.profileuserinfo}>
