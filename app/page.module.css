@@ -1016,6 +1016,9 @@
   .gallerytrack {
     gap: 1rem;
   }
+  .divfordots{
+    top: 83%;
+  }
 }
 @media (max-width: 900px) {
   .newupcomsec {
