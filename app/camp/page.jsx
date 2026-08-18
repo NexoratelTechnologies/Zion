@@ -33,7 +33,7 @@ export default function Camp() {
               yourself.
             </p>
             <Link href="/camp/book">
-              <button>Camp Here</button>
+              <button>Book Camp</button>
             </Link>
 
             <div className={styles.twotagsoncap}>

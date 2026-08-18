@@ -292,6 +292,9 @@
 ========================= */
 
 .upcomingeventtag {
+  position: relative;
+  z-index: 1;
+
   display: flex;
   justify-content: center;
   background: rgba(43, 25, 16, 0.94);

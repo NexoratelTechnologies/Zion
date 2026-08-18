@@ -9,7 +9,7 @@
   text-align: center;
   margin-top: 2rem;
   padding: 3.5rem 2rem 5rem;
-  background-color: brown;
+  background-color: var(--brown-deep);
   border-radius: 12px;
   color: white;
 }
@@ -19,7 +19,7 @@
   font-size: 0.85rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--cream);
   margin-bottom: 0.5rem;
 }
 
@@ -33,7 +33,7 @@
   font-family: var(--font-roboto-condensed), sans-serif;
   font-size: 1rem;
   margin-top: 0.6rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--cream);
 }
 
 .form {
@@ -43,7 +43,7 @@
   margin: 0 auto;
   margin-top: -3rem;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(62, 35, 23, 0.1);
   padding: 2.5rem 2rem;
   position: relative;
   z-index: 1;
@@ -64,8 +64,9 @@
 .formsectionnum {
   font-family: var(--font-anton), sans-serif;
   font-size: 0.9rem;
-  color: brown;
-  border: 1.5px solid brown;
+  color: var(--brown-deep);
+  background-color: var(--cream);
+  border: 1.5px solid var(--brown-gold);
   border-radius: 50%;
   width: 28px;
   height: 28px;
@@ -81,7 +82,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: #333;
+  color: var(--brown-deep);
 }
 
 .formrow {
@@ -100,13 +101,13 @@
   font-family: var(--font-poppins), sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #444;
+  color: var(--brown-mid);
   margin-bottom: 0.4rem;
 }
 
 .formgroup label span {
   font-weight: 400;
-  color: #999;
+  color: var(--brown-light);
 }
 
 .formgroup input,
@@ -115,20 +116,28 @@
   font-family: var(--font-poppins), sans-serif;
   font-size: 0.95rem;
   padding: 0.7rem 0.9rem;
-  border: 1.5px solid #e0e0e0;
+  border: 1.5px solid var(--brown-light);
   border-radius: 10px;
-  background-color: #fafafa;
+  background-color: #fffdf9;
+  color: var(--brown-deep);
   transition:
     border-color 0.2s ease,
-    background-color 0.2s ease;
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.formgroup input::placeholder,
+.formgroup textarea::placeholder {
+  color: var(--brown-light);
 }
 
 .formgroup input:focus,
 .formgroup select:focus,
 .formgroup textarea:focus {
   outline: none;
-  border-color: brown;
+  border-color: var(--brown-gold);
   background-color: white;
+  box-shadow: 0 0 0 3px rgba(224, 184, 120, 0.16);
 }
 
 .formgroup textarea {
@@ -139,8 +148,9 @@
 .campdatesbox {
   display: flex;
   align-items: center;
-  background-color: #faf5f0;
-  border: 1.5px solid #f0e4d8;
+  background-color: var(--cream);
+  border: 1.5px solid var(--brown-light);
+  border-left: 3px solid var(--brown-gold);
   border-radius: 12px;
   padding: 1.2rem 1.5rem;
   margin-bottom: 1.2rem;
@@ -155,7 +165,7 @@
 
 .campdateitem i {
   font-size: 1.3rem;
-  color: brown;
+  color: var(--brown-mid);
 }
 
 .campdatelabel {
@@ -163,21 +173,21 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #999;
+  color: var(--brown-mid);
 }
 
 .campdatevalue {
   font-family: var(--font-oswald), sans-serif;
   font-size: 1.05rem;
   font-weight: 600;
-  color: #333;
+  color: var(--brown-deep);
   margin-top: 0.1rem;
 }
 
 .campdatedivider {
   width: 1.5px;
   height: 40px;
-  background-color: #e5d5c5;
+  background-color: var(--brown-light);
   margin: 0 1.5rem;
 }
 
@@ -185,7 +195,7 @@
   width: 100%;
   margin-top: 1.5rem;
   padding: 1rem;
-  background-color: brown;
+  background-color: var(--brown-deep);
   color: white;
   border: none;
   border-radius: 10px;
@@ -194,32 +204,42 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .submitbtn:hover {
-  background-color: #6b1414;
+  background-color: var(--brown-mid);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(62, 35, 23, 0.18);
 }
 
 @media (max-width: 700px) {
   .heading {
     padding: 2.5rem 1.2rem 4rem;
   }
+
   .heading h1 {
     font-size: 2rem;
   }
+
   .form {
     width: 92%;
     padding: 2rem 1.2rem;
   }
+
   .formrow {
     flex-direction: column;
     gap: 1rem;
   }
+
   .campdatesbox {
     flex-direction: column;
     gap: 1rem;
   }
+
   .campdatedivider {
     width: 60%;
     height: 1.5px;
