@@ -6,6 +6,7 @@ import { createCamp } from "@/app/actions/camp";
 const initialState = {
   error: null,
   success: false,
+  message: null,
 };
 
 export default function CampForm() {
@@ -40,6 +41,29 @@ export default function CampForm() {
       </div>
 
       <div>
+        <label htmlFor="location">Location</label>
+
+        <input
+          id="location"
+          name="location"
+          type="text"
+          placeholder="Prayer Camp Grounds"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="capacity">Capacity</label>
+
+        <input
+          id="capacity"
+          name="capacity"
+          type="number"
+          min="1"
+          placeholder="100"
+        />
+      </div>
+
+      <div>
         <label htmlFor="arrivalDate">Arrival Date</label>
 
         <input id="arrivalDate" name="arrivalDate" type="date" required />
@@ -52,17 +76,17 @@ export default function CampForm() {
       </div>
 
       <div>
-        <label htmlFor="isActive">Camp Status</label>
+        <label htmlFor="status">Camp Status</label>
 
-        <select id="isActive" name="isActive" defaultValue="true">
-          <option value="true">Active</option>
-          <option value="false">Inactive</option>
+        <select id="status" name="status" defaultValue="OPEN">
+          <option value="OPEN">Open</option>
+          <option value="CLOSED">Closed</option>
         </select>
       </div>
 
       {state.error && <p>{state.error}</p>}
 
-      {state.success && <p>Camp created successfully.</p>}
+      {state.success && <p>{state.message || "Camp created successfully."}</p>}
 
       <button type="submit" disabled={isPending}>
         {isPending ? "Creating Camp..." : "Create Camp"}
